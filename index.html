@@ -16,8 +16,6 @@
 
   <!-- Inlined styles are usually a bad idea. But for very small webpages, like this one, it's ok.  -->
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400|Oswald:500');
-
     @-ms-viewport{
       width: device-width;
     }
@@ -27,10 +25,10 @@
     }
 
     body {
-      color: #555;
-      font-family: 'Open Sans', sans-serif;
+      color: #5F6062;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 300;
       margin: 0;
     }
 
@@ -44,8 +42,7 @@
     h3,
     h4 {
       color: #000;
-      font-family: 'Oswald', sans-serif;
-      font-weight: 500;
+      font-weight: 700;
       line-height: 1.15;
       margin: 1em 0;
     }
@@ -81,7 +78,7 @@
     /* INLINE TEXT */
 
     a {
-      color: #0ca;
+      color: #49D562;
       text-decoration: none;
     }
     a:hover,
@@ -98,29 +95,80 @@
     }
 
     /* FORMS */
-    .asterisk {
-      color: #c50;
+    .input {
+      -webkit-appearance: none;
+      background: #fff;
+      border: 0;
+      border-radius: 2px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.2);
+      color: inherit;
+      font: inherit;
+      padding: 13px;
+      width: 100%;
+    }
+    .input:focus {
+      outline: 0;
+    }
+
+    .label {
+      color: #9B9B9B;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .button {
+      -webkit-appearance: none;
+      background: #49D562;
+      border: 0;
+      border-radius: 44px;
+      color: #fff;
+      display: inline-block;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1;
+      padding: 13px 32px;
     }
 
     /* LAYOUT */
+    .l--columns__column {
+      margin: 30px 0;
+    }
+
     @media screen and (min-width: 600px) {
       .l--columns {
         display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .l--columns--spaced {
+        margin-bottom: 30px;
+        margin-top: 30px;
       }
 
-      .l--columns__sidebar {
-        flex: 0 0 200px;
-        padding-left: 40px;
-        order: 2;
+      .l--columns__column {
+        flex: 1 1 100%;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-right: 30px;
       }
-
-      .l--columns__main {
-        flex: 1 0 100%;
-        order: 1;
+      .l--columns__column:last-child {
+        padding-right: 0;
+      }
+      .l--columns__column:only-of-type {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    @media screen and (min-width: 780px) {
+      .l--columns--break-grid {
+        margin-left: -70px;
+        margin-right: -70px;
+        width: calc(100% + 140px);
       }
     }
 
     /* MODULES */
+    /* site */
     .site {
       display: flex;
       min-height: 100vh;
@@ -144,26 +192,57 @@
       }
     }
 
+    /* field */
+    .js .field {
+      position: relative;
+    }
+
+    .js .field__label {
+      left: 13px;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition-duration: .15s;
+      transition-timing-function: ease-in-out;
+      transition-property: top transform;
+    }
+
+    .js .field__label.field__label--is-dirty {
+      font-size: 12px;
+      top: 0;
+      transform: translateY(8px);
+    }
+
+    .field__input {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    .field__input.field__input--is-dirty {
+      padding-top: 26px;
+      padding-bottom: 10px;
+    }
+
     /* UTILITIES */
     .u--text-center {
       text-align: center;
     }
   </style>
 </head>
-<body>
+<body class="no-js">
   <div class="site">
     <header class="site__header" role="banner">
       <h1 class="u--text-center">Code for Designers</h1>
     </header>
     <main class="site__main" role="main">
       <div classs="l--columns">
-        <div classs="l--columns__sidebar">
+        <div classs="l--columns__column l--columns__column--sidebar">
           <div class="u--text-center">
             <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
           </div>
         </div>
 
-        <div classs="l--columns__main">
+        <div classs="l--columns__column l--columns__column--main">
           <p>Hey!</p>
 
           <p>I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
@@ -182,37 +261,55 @@
 
 
 
-      <!-- Begin MailChimp Signup Form -->
-      <div id="mc_embed_signup">
-        <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-          <div id="mc_embed_signup_scroll">
-            <h2>Stop waiting, start coding</h2>
-            <p>No more ugly demos, technical babel, or boring lectures -- finally learn what it takes to go from concept to code. Get designer-orientated coding tips, tricks and tutorials delivered to your inbox.</p>
-            <p><em>(All fields below are required.)<em></p>
+      <!-- START: MailChimp Signup Form -->
+      <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" class="js--validate" name="mc-embedded-subscribe-form" target="_blank">
+        <h2>Stop waiting, start coding</h2>
+        <p>No more ugly demos, technical babel, or boring lectures -- finally learn what it takes to go from concept to code. Get designer-orientated coding tips, tricks and tutorials delivered to your inbox.</p>
+        <p><em>(All fields below are required.)</em></p>
 
-          <div class="field">
-            <label for="mce-EMAIL" class="field__label">Email Address</label>
-            <input type="email" value="" name="EMAIL" class="field__input" id="mce-EMAIL" required autocomplete="email">
+        <div class="alert" role="alert" aria-live="polite"></div>
+
+        <div class="l--columns l--columns--spaced l--columns--break-grid">
+          <div class="l--columns__column">
+            <div class="field js--field">
+              <label for="mce-FNAME" class="label field__label js--field__label">First Name</label>
+              <input type="text" value="" name="FNAME" class="input field__input js--field__input" id="mce-FNAME" required minlength=2 autocomplete="given-name">
+              <div class="input__error" aria-live="polite"></div>
+            </div>
           </div>
 
-          <div class="field">
-            <label for="mce-FNAME" class="field__label">First Name</label>
-            <input type="text" value="" name="FNAME" class="field__input" id="mce-FNAME" required autocomplete="given-name">
+          <div class="l--columns__column">
+            <div class="field js--field">
+              <label for="mce-LNAME" class="label field__label js--field__label">Last Name</label>
+              <input type="text" value="" name="LNAME" class="input field__input js--field__input" id="mce-LNAME" required minlength=2 autocomplete="family-name">
+              <div class="input__error" aria-live="polite"></div>
+            </div>
           </div>
+        </div>
 
-          <div class="field">
-            <label for="mce-LNAME" class="field__label">Last Name</label>
-            <input type="text" value="" name="LNAME" class="field__input" id="mce-LNAME" required autocomplete="family-name">
+        <div class="l--columns">
+          <div class="l--columns__column">
+            <div class="field js--field">
+              <label for="mce-EMAIL" class="label field__label js--field__label">Email Address</label>
+              <input type="email" value="" name="EMAIL" class="input field__input js--field__input" id="mce-EMAIL" required autocomplete="email">
+              <div class="input__error" aria-live="polite"></div>
+            </div>
           </div>
-
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_521d476f58a0f6f4878adc436_5e3811f11f" tabindex="-1" value=""></div>
+        </div>
 
 
-          <input type="submit" value="Get the Free Newsletter" name="subscribe" class="button">
-        </form>
-      </div>
-      <!--End mc_embed_signup-->
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_521d476f58a0f6f4878adc436_5e3811f11f" tabindex="-1" value=""></div>
+
+        <div class="l--columns l--columns--spaced">
+          <div class="l--columns__column">
+            <div class="u--text-center">
+              <input type="submit" value="Get the Free Newsletter" name="subscribe" class="button">
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- END: MailChimp Signup Form -->
 
 
 
@@ -238,7 +335,81 @@
 
   <!-- JavaScript goes below here. (Let's avoid blocking rendering) -->
   <script>
+    // let our css know if JS is available
+    (() => {
+      const bodyElement = document.querySelector('body')
+      bodyElement.classList.remove('no-js')
+      bodyElement.classList.add('js')
+    })()
 
+    class MoveLabel {
+      constructor(fieldContainerEle, options) {
+        // Setup defaultOptions
+        const defaultOptions = {
+          fieldSelector: '.js--field__input',
+          labelSelector: '.js--field__label',
+          labelIsDirtyClass: 'field__label--is-dirty',
+          fieldIsDirtyClass: 'field__input--is-dirty'
+        }
+
+        this.options = Object.assign({}, defaultOptions, options)
+        this.fieldContainerEle = fieldContainerEle
+        this.fieldEle = this.fieldContainerEle.querySelector(this.options.fieldSelector)
+        this.labelEle = this.fieldContainerEle.querySelector(this.options.labelSelector)
+
+        // 'this' binding
+        this.addDirtyClass = this.addDirtyClass.bind(this)
+
+        this.fieldEle.addEventListener('input', this.addDirtyClass)
+        this.fieldEle.addEventListener('change', this.addDirtyClass)
+      }
+
+      addDirtyClass(event) {
+        if(event.target.value !== '') {
+          this.labelEle.classList.add(this.options.labelIsDirtyClass)
+          event.target.classList.add(this.options.fieldIsDirtyClass)
+        } else {
+          this.labelEle.classList.remove(this.options.labelIsDirtyClass)
+          event.target.classList.remove(this.options.fieldIsDirtyClass)
+        }
+      }
+    }
+
+    class FormValidation {
+      constructor(formEle, options) {
+        // Setup defaults
+        const defaultOptions = {
+          fieldContainerSelector: '.js--field',
+          fieldSelector: '.js--field__input',
+          fieldErrorSelector: '.js--field__error',
+          messages: {
+            badInput: 'Bad input, try harder',
+            patternMismatch: 'Invalid email address. Try formatting your "username@example.com"',
+            rangeOverflow: 'Number is greater than the max allowed',
+            rangeUnderflow: 'Number is less than the min allowed',
+            stepMismatch: 'This number doesn\'t match the accepted values.',
+            tooLong: 'Too many characters, try removing some.',
+            tooShort: 'Not enough characters, try adding some.',
+            typeMismatch: 'Not the format we\'re looking for, try again.',
+            valueMissing: 'This field is required. Please enter something.',
+            default: 'An error happened. Try again.',
+          }
+        }
+        this.options = Object.assign({}, defaultOptions, options)
+
+        // Capture necessary elements
+        this.formEle = formEle
+        // this.fieldContainerEle =
+
+        // Bind this to methods that need it
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.js--field').forEach((fieldContainerEle) => {
+        new MoveLabel(fieldContainerEle)
+      })
+    })
   </script>
 </body>
 </html>
