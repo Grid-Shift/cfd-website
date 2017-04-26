@@ -193,11 +193,11 @@
     }
 
     /* field */
-    .js .field {
+    .field {
       position: relative;
     }
 
-    .js .field__label {
+    .field__label {
       left: 13px;
       pointer-events: none;
       position: absolute;
@@ -208,7 +208,8 @@
       transition-property: top transform;
     }
 
-    .js .field__label.field__label--is-dirty {
+    .no-js .field__label,
+    .field__label.field__label--is-dirty {
       font-size: 12px;
       top: 0;
       transform: translateY(8px);
@@ -218,6 +219,7 @@
       padding-top: 18px;
       padding-bottom: 18px;
     }
+    .no-js .field__input,
     .field__input.field__input--is-dirty {
       padding-top: 26px;
       padding-bottom: 10px;
@@ -273,7 +275,7 @@
           <div class="l--columns__column">
             <div class="field js--field">
               <label for="mce-FNAME" class="label field__label js--field__label">First Name</label>
-              <input type="text" value="" name="FNAME" class="input field__input js--field__input" id="mce-FNAME" required minlength=2 autocomplete="given-name">
+              <input type="text" name="FNAME" class="input field__input js--field__input" id="mce-FNAME" required minlength=2 autocomplete="given-name">
               <div class="input__error" aria-live="polite"></div>
             </div>
           </div>
@@ -281,7 +283,7 @@
           <div class="l--columns__column">
             <div class="field js--field">
               <label for="mce-LNAME" class="label field__label js--field__label">Last Name</label>
-              <input type="text" value="" name="LNAME" class="input field__input js--field__input" id="mce-LNAME" required minlength=2 autocomplete="family-name">
+              <input type="text" name="LNAME" class="input field__input js--field__input" id="mce-LNAME" required minlength=2 autocomplete="family-name">
               <div class="input__error" aria-live="polite"></div>
             </div>
           </div>
@@ -291,7 +293,7 @@
           <div class="l--columns__column">
             <div class="field js--field">
               <label for="mce-EMAIL" class="label field__label js--field__label">Email Address</label>
-              <input type="email" value="" name="EMAIL" class="input field__input js--field__input" id="mce-EMAIL" required autocomplete="email">
+              <input type="email" name="EMAIL" class="input field__input js--field__input" id="mce-EMAIL" required autocomplete="email">
               <div class="input__error" aria-live="polite"></div>
             </div>
           </div>
@@ -360,6 +362,7 @@
         // 'this' binding
         this.addDirtyClass = this.addDirtyClass.bind(this)
 
+        // Event listeners
         this.fieldEle.addEventListener('input', this.addDirtyClass)
         this.fieldEle.addEventListener('change', this.addDirtyClass)
       }
