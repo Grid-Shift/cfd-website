@@ -21,14 +21,16 @@
     }
 
     * {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
       box-sizing: border-box;
     }
 
     body {
-      color: #5F6062;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #606061;
+      font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 18px;
-      font-weight: 300;
+      font-weight: 400;
       margin: 0;
     }
 
@@ -59,14 +61,15 @@
       margin-bottom: 0;
     }
 
-    h1 {
-      font-size: 52px;
+    h1,
+    .h1 {
+      font-size: 32px;
     }
 
     /* PARAGRAPHS */
     p {
-      line-height: 1.75;
-      margin: 1.5em 0;
+      line-height: 1.6666;
+      margin: 1em 0;
     }
     p:first-child {
       margin-top: 0;
@@ -78,12 +81,17 @@
     /* INLINE TEXT */
 
     a {
-      color: #49D562;
-      text-decoration: none;
+      color: inherit;
+      text-decoration: underline;
+      transition: color .2s ease-in-out;
     }
     a:hover,
     a:focus {
-      color: #0db;
+      color: #49D562;
+    }
+
+    small {
+      font-size: 13px;
     }
 
     /* IMAGES */
@@ -101,7 +109,7 @@
       border: 0;
       border-radius: 2px;
       box-shadow: 0 1px 4px rgba(0,0,0,.2);
-      color: inherit;
+      color: #000;
       font: inherit;
       padding: 13px;
       width: 100%;
@@ -130,6 +138,12 @@
     }
 
     /* LAYOUT */
+    .l--constrain {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     .l--columns__column {
       margin: 30px 0;
     }
@@ -143,6 +157,12 @@
       .l--columns--spaced {
         margin-bottom: 30px;
         margin-top: 30px;
+      }
+      .l--columns--spaced:first-child {
+        margin-top: 0;
+      }
+      .l--columns--spaced:last-child {
+        margin-bottom: 0;
       }
 
       .l--columns__column {
@@ -174,8 +194,6 @@
       min-height: 100vh;
       flex-direction: column;
       margin: 0 auto;
-      max-width: 650px;
-      padding: 0 20px;
     }
 
     .site__header {
@@ -189,6 +207,44 @@
     @media screen and (min-width: 600px) {
       .site__header {
         padding-bottom: 80px;
+      }
+    }
+
+    /* cta block */
+    .cta-block {
+      background: #F5F5F5 url('/images/cta-bg-letters.svg');
+      margin-top: 40px;
+      padding: 40px 0;
+      position: relative;
+    }
+
+    .cta-block__bg-1,
+    .cta-block__bg-2 {
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+    }
+    .cta-block__bg-1 {
+      background: url('/images/cta-bg-planes.svg');
+    }
+    .cta-block__bg-2 {
+      background: url('/images/cta-bg-brackets.svg');
+    }
+
+    .cta-block__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    @media screen and (min-width: 600px) {
+      .cta-block {
+        margin-top: 80px;
+        padding-bottom: 80px;
+        padding-top: 80px;
       }
     }
 
@@ -229,7 +285,21 @@
     .u--text-center {
       text-align: center;
     }
+
+    .u--text-on-pattern {
+      text-shadow: 0 0 10px #F5F5F5;
+    }
   </style>
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'qni5tlo',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
 </head>
 <body class="no-js">
   <div class="site">
@@ -237,14 +307,14 @@
       <h1 class="u--text-center">Code for Designers</h1>
     </header>
     <main class="site__main" role="main">
-      <div classs="l--columns">
-        <div classs="l--columns__column l--columns__column--sidebar">
+      <div class="l--constrain">
+        <div>
           <div class="u--text-center">
             <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
           </div>
         </div>
 
-        <div classs="l--columns__column l--columns__column--main">
+        <div>
           <p>Hey!</p>
 
           <p>I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
@@ -262,66 +332,75 @@
 
 
 
+      <div class="cta-block">
+        <div class="cta-block__bg-1"></div>
+        <div class="cta-block__bg-2"></div>
 
-      <!-- START: MailChimp Signup Form -->
-      <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" class="js--validate" name="mc-embedded-subscribe-form" target="_blank">
-        <h2>Stop waiting, start coding</h2>
-        <p>No more ugly demos, technical babel, or boring lectures -- finally learn what it takes to go from concept to code. Get designer-orientated coding tips, tricks and tutorials delivered to your inbox.</p>
-        <p><em>(All fields below are required.)</em></p>
+        <div class="cta-block__content">
+          <div class="l--constrain">
+            <!-- START: MailChimp Signup Form -->
+            <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" class="js--validate" name="mc-embedded-subscribe-form" target="_blank">
+              <h2 class="h1 u--text-center">Stop waiting, start coding</h2>
+              <p class="u--text-center u--text-on-pattern">
+                No more ugly demos, technical babel, or boring lectures -- finally learn what it takes to go from concept to code. Get designer-orientated coding tips, tricks and tutorials delivered to your inbox.
+                <br>
+                <small>(All fields below are required.)</small>
+              </p>
 
-        <div class="alert" role="alert" aria-live="polite"></div>
+              <div class="alert" role="alert" aria-live="polite"></div>
 
-        <div class="l--columns l--columns--spaced l--columns--break-grid">
-          <div class="l--columns__column">
-            <div class="field js--field">
-              <label for="mce-FNAME" class="label field__label js--field__label">First Name</label>
-              <input type="text" name="FNAME" class="input field__input js--field__input" id="mce-FNAME" required minlength=2 autocomplete="given-name">
-              <div class="input__error" aria-live="polite"></div>
-            </div>
-          </div>
+              <div class="l--columns l--columns--spaced l--columns--break-grid">
+                <div class="l--columns__column">
+                  <div class="field js--field">
+                    <label for="mce-FNAME" class="label field__label js--field__label">First Name</label>
+                    <input type="text" name="FNAME" class="input field__input js--field__input" id="mce-FNAME" required minlength=2 autocomplete="given-name">
+                    <div class="input__error" aria-live="polite"></div>
+                  </div>
+                </div>
 
-          <div class="l--columns__column">
-            <div class="field js--field">
-              <label for="mce-LNAME" class="label field__label js--field__label">Last Name</label>
-              <input type="text" name="LNAME" class="input field__input js--field__input" id="mce-LNAME" required minlength=2 autocomplete="family-name">
-              <div class="input__error" aria-live="polite"></div>
-            </div>
+                <div class="l--columns__column">
+                  <div class="field js--field">
+                    <label for="mce-LNAME" class="label field__label js--field__label">Last Name</label>
+                    <input type="text" name="LNAME" class="input field__input js--field__input" id="mce-LNAME" required minlength=2 autocomplete="family-name">
+                    <div class="input__error" aria-live="polite"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="l--columns">
+                <div class="l--columns__column">
+                  <div class="field js--field">
+                    <label for="mce-EMAIL" class="label field__label js--field__label">Email Address</label>
+                    <input type="email" name="EMAIL" class="input field__input js--field__input" id="mce-EMAIL" required autocomplete="email">
+                    <div class="input__error" aria-live="polite"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_521d476f58a0f6f4878adc436_5e3811f11f" tabindex="-1" value=""></div>
+
+              <div class="l--columns l--columns--spaced">
+                <div class="l--columns__column">
+                  <div class="u--text-center">
+                    <input type="submit" value="Get the Free Newsletter" name="subscribe" class="button">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- END: MailChimp Signup Form -->
+
+            <footer class="l--columns--spaced" role="contentinfo">
+              <div class="l--columns__column">
+                <div class="u--text-center u--text-on-pattern">
+                  <small>&copy; 2017, <a href="http://gridshiftdesign.com">Grid Shift LLC</a>, the studio of product designer <a href="http://ezekielbinion.com">Zeke Binion</a></small>
+                </div>
+              </div>
+            </footer>
           </div>
         </div>
-
-        <div class="l--columns">
-          <div class="l--columns__column">
-            <div class="field js--field">
-              <label for="mce-EMAIL" class="label field__label js--field__label">Email Address</label>
-              <input type="email" name="EMAIL" class="input field__input js--field__input" id="mce-EMAIL" required autocomplete="email">
-              <div class="input__error" aria-live="polite"></div>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_521d476f58a0f6f4878adc436_5e3811f11f" tabindex="-1" value=""></div>
-
-        <div class="l--columns l--columns--spaced">
-          <div class="l--columns__column">
-            <div class="u--text-center">
-              <input type="submit" value="Get the Free Newsletter" name="subscribe" class="button">
-            </div>
-          </div>
-        </div>
-      </form>
-      <!-- END: MailChimp Signup Form -->
-
-
-
-
-    </main>
-    <footer class="site__footer" role="contentinfo">
-      <div class="u--text-center">
-        <small>&copy; 2017, <a href="http://gridshiftdesign.com">Grid Shift LLC</a>, the studio of product designer <a href="http://ezekielbinion.com">Zeke Binion</a></small>
       </div>
-    </footer>
+    </main>
   </div>
 
   <!-- Analytics -->
@@ -405,6 +484,8 @@
         // this.fieldContainerEle =
 
         // Bind this to methods that need it
+
+        // TODO: finish inline validation
       }
     }
 
