@@ -39,6 +39,7 @@
       font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 18px;
       font-weight: 400;
+      line-height: 1.5;
       margin: 0;
     }
 
@@ -87,7 +88,6 @@
     }
 
     /* INLINE TEXT */
-
     a {
       color: inherit;
       text-decoration: underline;
@@ -174,6 +174,10 @@
       width: 100%;
     }
 
+    .l--columns--vertically-centered {
+      align-items: center;
+    }
+
     .l--columns__column {
       margin: 30px 0;
     }
@@ -187,15 +191,23 @@
     .l--columns__column--small:last-child {
       padding-right: 0;
     }
-    .l--columns__column--small:only-of-type {
+    .l--columns__column--small:only-child {
       padding-left: 0;
       padding-right: 0;
+    }
+    .l--columns__column--one-third {
+      flex-basis: 33.33333%;
+    }
+    .l--columns__column--one-thirds {
+      flex-basis: 66.66666%;
     }
 
     @media screen and (min-width: 600px) {
       .l--columns {
         display: flex;
         justify-content: space-between;
+        padding: 0;
+        margin: 0;
         width: 100%;
       }
       .l--columns--spaced {
@@ -211,16 +223,21 @@
 
       .l--columns__column {
         flex: 1 1 100%;
-        margin-bottom: 0;
-        margin-top: 0;
+        margin: 0;
         padding-right: 30px;
       }
       .l--columns__column:last-child {
         padding-right: 0;
       }
-      .l--columns__column:only-of-type {
+      .l--columns__column:only-child {
         padding-left: 0;
         padding-right: 0;
+      }
+      .l--columns__column--one-third {
+        flex-basis: 33.33333%;
+      }
+      .l--columns__column--one-thirds {
+        flex-basis: 66.66666%;
       }
     }
     @media screen and (min-width: 780px) {
@@ -232,31 +249,48 @@
     }
 
     /* MODULES */
-    /* site */
-    .site {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      margin: 0 auto;
+    /* article */
+    .article__header {
+      margin-bottom: 30px;
     }
 
-    .site__header {
-      padding: 30px 20px 60px;
-    }
-
-    .site__main {
-      flex: 1;
+    .article__footer {
+      margin-top: 30px;
     }
 
     @media screen and (min-width: 600px) {
-      .site__header {
-        padding-bottom: 80px;
+      .article__header {
+        margin-bottom: 60px;
       }
+
+      .article__footer {
+        margin-top: 60px;
+      }
+    }
+
+    /* bio */
+    .bio {
+      margin: 0;
+      padding: 0;
+    }
+
+    .bio__image {
+      border-radius: 50%;
+    }
+
+    .bio__name {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .bio__description {
+      font-size: 13px;
     }
 
     /* cta block */
     .cta-block {
-      background: #F5F5F5 url('/images/cta-bg-letters.svg');
+      background: #F5F5F5 url('/images/cta-bg-letters.svg') center top;
       margin-top: 40px;
       padding: 40px 0;
       position: relative;
@@ -273,10 +307,10 @@
       z-index: 0;
     }
     .cta-block__bg-1 {
-      background: url('/images/cta-bg-planes.svg');
+      background: url('/images/cta-bg-planes.svg') center top;
     }
     .cta-block__bg-2 {
-      background: url('/images/cta-bg-brackets.svg');
+      background: url('/images/cta-bg-brackets.svg') center top;
     }
 
     .cta-block__content {
@@ -333,6 +367,28 @@
       padding: 8px 0;
     }
 
+    /* site */
+    .site {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .site__header {
+      padding: 30px 20px 60px;
+    }
+
+    .site__main {
+      flex: 1;
+    }
+
+    @media screen and (min-width: 600px) {
+      .site__header {
+        padding-bottom: 80px;
+      }
+    }
+
     /* UTILITIES */
     .u--text-center {
       text-align: center;
@@ -369,32 +425,45 @@
       </div>
     </header>
     <main class="site__main" role="main">
-      <div class="l--constrain">
+      <article class="article">
+        <header class="article__header">
+          <div class="l--constrain">
+            <h1 class="u--text-center">Finally, learn what it takes to make your designs a reality</h1>
+          </div>
+        </header>
+        <div class="article__content">
+          <div class="l--constrain">
+            <p>Hey! I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
 
-        <h1 class="u--text-center">Finally, learn what it really takes to make your designs a reality</h1>
-        <div>
-          <div class="u--text-center">
-            <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
+            <p>But enough about me, this is about you!</p>
+
+            <p>Code for Designers is about helping you learn to code, in the way designers, like you and me, like to learn. No more boring demos, technical babble, or ugly examples — I&rsquo;ll help you finally learn what it takes to go from idea to execution.</p>
+
+            <p>I can&rsquo;t wait to start sharing what I&rsquo;ve learned with you. Right now I&rsquo;m designing the video lessons, writing articles, and designing fun exercises to let your imagination run free.</p>
+
+            <p>Want to know when things are ready? Sign up below. I&rsquo;ll keep you up-to-date with the site&rsquo;s progress and send fun tips your way.</p>
           </div>
         </div>
-
-        <div>
-          <p>Hey!</p>
-
-          <p>I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
-
-          <p>But enough about me, this is about you!</p>
-
-          <p>Code for Designers is about helping you learn to code, in the way designers, like you and me, like to learn. No more boring demos, technical babble, or ugly examples — I&rsquo;ll help you finally learn what it takes to go from idea to execution.</p>
-
-          <p>I can&rsquo;t wait to start sharing what I&rsquo;ve learned with you. Right now I&rsquo;m designing the video lessons, writing articles, and designing fun exercises to let your imagination run free.</p>
-
-          <p>Want to know when things are ready? Sign up below. I&rsquo;ll keep you up-to-date with the site&rsquo;s progress and send fun tips your way.</p>
-        </div>
-      </div>
-
-
-
+        <footer class="article__footer">
+          <div class="l--constrain">
+            <figure class="bio">
+              <div class="l--columns l--columns--small l--columns--vertically-centered">
+                <div class="l--columns__column l--columns__column--small l--columns__column--one-third">
+                  <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="bio__image" />
+                </div>
+                <figcaption class="l--columns__column l--columns__column--small l--columns__column--two-thirds">
+                  <a href="http://ezekielbinion.com" class="bio__name" rel="author">Ezekiel "Zeke" Binion</a>
+                  <div class="bio__description">
+                    Product Designer / Developer / Speaker / Gamer / Lover of Slashes
+                    <br>
+                    <a href="http://ezekielbinion.com">Learn more about me</a>
+                  </div>
+                </figcaption>
+              </div>
+            </figure>
+          </div>
+        </footer>
+      </article>
 
       <div id="newsletter-signup" class="cta-block">
         <div class="cta-block__bg-1"></div>
