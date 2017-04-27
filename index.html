@@ -666,12 +666,12 @@
         this.isOnScreen = this.isOnScreen.bind(this)
         this.toggleOnScreenClass = this.toggleOnScreenClass.bind(this)
 
+        this.toggleOnScreenClass()
         window.addEventListener('scroll', () => {
             this.scrollThrottle(this.toggleOnScreenClass)
         })
       }
 
-      this.toggleOnScreenClass()
       scrollThrottle(callback) {
         window.requestAnimationFrame(() => {
           callback()
