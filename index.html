@@ -309,6 +309,7 @@
     /* cta block */
     .cta-block {
       background: #F5F5F5 url('/images/cta-bg-letters.svg') center top;
+      /*background-attachment: fixed;*/
       margin-top: 40px;
       padding: 40px 0;
       position: relative;
@@ -334,6 +335,19 @@
     .cta-block__content {
       position: relative;
       z-index: 2;
+    }
+    .js .cta-block__content {
+      opacity: 0;
+      transform: translateY(50px);
+      will-change: opacity transform;
+    }
+    .js .cta-block__content.is--on-screen {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .2s;
+      transition-duration: .5s;
+      transition-timing-function: ease-out;
+      transition-property: opacity transform;
     }
 
     @media screen and (min-width: 600px) {
@@ -495,7 +509,7 @@
         <div class="cta-block__bg-1"></div>
         <div class="cta-block__bg-2"></div>
 
-        <div class="cta-block__content">
+        <div class="cta-block__content js--is-onscreen">
           <div class="l--constrain">
             <!-- START: MailChimp Signup Form -->
             <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" class="js--validate" name="mc-embedded-subscribe-form" target="_blank">
@@ -637,19 +651,70 @@
         // this.fieldContainerEle =
 
         // Bind this to methods that need it
+        // listen to 'compositionupdate' for speech to text
 
         // TODO: finish inline validation
       }
     }
 
+    class onScreen {
+      constructor(element, classToAdd='is--on-screen') {
+        this.element = element
+        this.classToAdd = classToAdd
+
+        this.scrollThrottle = this.scrollThrottle.bind(this)
+        this.isOnScreen = this.isOnScreen.bind(this)
+        this.toggleOnScreenClass = this.toggleOnScreenClass.bind(this)
+
+        window.addEventListener('scroll', () => {
+            this.scrollThrottle(this.toggleOnScreenClass)
+        })
+      }
+
+      scrollThrottle(callback) {
+        window.requestAnimationFrame(() => {
+          callback()
+        })
+      }
+
+      isOnScreen() {
+        // TODO: Handle scrolling past target
+        const scrollBarPos = document.body.scrollTop
+        const windowHeight = window.innerHeight
+        let elementPos = this.element.offsetTop
+        if (this.element.offsetParent) {
+          elementPos += this.element.offsetParent.offsetTop
+        }
+
+        if (scrollBarPos + windowHeight >= elementPos) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      toggleOnScreenClass() {
+        if(this.isOnScreen()) {
+          this.element.classList.add(this.classToAdd)
+        } else {
+          this.element.classList.remove(this.classToAdd)
+        }
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.js--field').forEach((fieldContainerEle) => {
-        new MoveLabel(fieldContainerEle)
+      // MoveLabel
+      document.querySelectorAll('.js--field').forEach((element) => {
+        new MoveLabel(element)
+      })
+      // onScreen
+      document.querySelectorAll('.js--is-onscreen').forEach((element) => {
+        new onScreen(element)
       })
 
       // ScrollTo
-      document.querySelectorAll('.js--scrollTo').forEach((linkEle) => {
-        linkEle.addEventListener('click', (event) => {
+      document.querySelectorAll('.js--scrollTo').forEach((element) => {
+        element.addEventListener('click', (event) => {
           event.preventDefault()
           event.target.blur()
 
