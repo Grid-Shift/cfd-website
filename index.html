@@ -339,15 +339,14 @@
     .js .cta-block__content {
       opacity: 0;
       transform: translateY(50px);
+      transition-duration: .5s;
+      transition-timing-function: ease-out;
+      transition-property: opacity transform;
       will-change: opacity transform;
     }
     .js .cta-block__content.is--on-screen {
       opacity: 1;
       transform: translateY(0);
-      transition-delay: .2s;
-      transition-duration: .5s;
-      transition-timing-function: ease-out;
-      transition-property: opacity transform;
     }
 
     @media screen and (min-width: 600px) {
@@ -661,6 +660,7 @@
       constructor(element, classToAdd='is--on-screen') {
         this.element = element
         this.classToAdd = classToAdd
+        this.offsetDistance = 200
 
         this.scrollThrottle = this.scrollThrottle.bind(this)
         this.isOnScreen = this.isOnScreen.bind(this)
@@ -687,7 +687,7 @@
           elementPos += this.element.offsetParent.offsetTop
         }
 
-        if (scrollBarPos + windowHeight >= elementPos) {
+        if (scrollBarPos + windowHeight - this.offsetDistance >= elementPos) {
           return true
         } else {
           return false
