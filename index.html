@@ -364,7 +364,7 @@
           <div class="logo">Code for Designers</div>
         </div>
         <div class="l--columns__column l--columns__column--small">
-          <div class="u--text-right"><a href="#newsletter-signup" class="button button--secondary">sign up</a></div>
+          <div class="u--text-right"><a href="#newsletter-signup" class="button button--secondary js--scrollTo">sign up</a></div>
         </div>
       </div>
     </header>
@@ -479,6 +479,8 @@
   </script>
 
   <!-- JavaScript goes below here. (Let's avoid blocking rendering) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
   <script>
     // let our css know if JS is available
     (() => {
@@ -556,6 +558,17 @@
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.js--field').forEach((fieldContainerEle) => {
         new MoveLabel(fieldContainerEle)
+      })
+
+      // ScrollTo
+      document.querySelectorAll('.js--scrollTo').forEach((linkEle) => {
+        linkEle.addEventListener('click', (event) => {
+          event.preventDefault()
+          TweenLite.to(window, .75, {
+            ease: Strong.easeInOut,
+            scrollTo: event.target.getAttribute('href')
+          })
+        })
       })
     })
   </script>
