@@ -633,9 +633,15 @@
       document.querySelectorAll('.js--scrollTo').forEach((linkEle) => {
         linkEle.addEventListener('click', (event) => {
           event.preventDefault()
+          event.target.blur()
+
           TweenLite.to(window, .75, {
             ease: Strong.easeInOut,
-            scrollTo: event.target.getAttribute('href')
+            scrollTo: event.target.getAttribute('href'),
+            onCompleteParams: [document.querySelector(event.target.getAttribute('href'))],
+            onComplete: (targetEle) => {
+              targetEle.focus()
+            }
           })
         })
       })
