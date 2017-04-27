@@ -87,7 +87,6 @@
     }
 
     /* INLINE TEXT */
-
     a {
       color: inherit;
       text-decoration: underline;
@@ -232,25 +231,14 @@
     }
 
     /* MODULES */
-    /* site */
-    .site {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      margin: 0 auto;
-    }
-
-    .site__header {
-      padding: 30px 20px 60px;
-    }
-
-    .site__main {
-      flex: 1;
+    /* article */
+    .article__header {
+      margin-bottom: 30px;
     }
 
     @media screen and (min-width: 600px) {
-      .site__header {
-        padding-bottom: 80px;
+      .article__header {
+        margin-bottom: 60px;
       }
     }
 
@@ -333,6 +321,28 @@
       padding: 8px 0;
     }
 
+    /* site */
+    .site {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .site__header {
+      padding: 30px 20px 60px;
+    }
+
+    .site__main {
+      flex: 1;
+    }
+
+    @media screen and (min-width: 600px) {
+      .site__header {
+        padding-bottom: 80px;
+      }
+    }
+
     /* UTILITIES */
     .u--text-center {
       text-align: center;
@@ -369,32 +379,32 @@
       </div>
     </header>
     <main class="site__main" role="main">
-      <div class="l--constrain">
+      <article class="article">
+        <header class="article__header">
+          <div class="l--constrain">
+            <h1 class="u--text-center">Finally, learn what it takes to make your designs a reality</h1>
+          </div>
+        </header>
+        <div class="article__content">
+          <div class="l--constrain">
+            <p>Hey! I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
 
-        <h1 class="u--text-center">Finally, learn what it really takes to make your designs a reality</h1>
-        <div>
-          <div class="u--text-center">
-            <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
+            <p>But enough about me, this is about you!</p>
+
+            <p>Code for Designers is about helping you learn to code, in the way designers, like you and me, like to learn. No more boring demos, technical babble, or ugly examples — I&rsquo;ll help you finally learn what it takes to go from idea to execution.</p>
+
+            <p>I can&rsquo;t wait to start sharing what I&rsquo;ve learned with you. Right now I&rsquo;m designing the video lessons, writing articles, and designing fun exercises to let your imagination run free.</p>
+
+            <p>Want to know when things are ready? Sign up below. I&rsquo;ll keep you up-to-date with the site&rsquo;s progress and send fun tips your way.</p>
           </div>
         </div>
+        <footer class="article__footer">
+          <div class="l--constrain">
+            <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
 
-        <div>
-          <p>Hey!</p>
-
-          <p>I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
-
-          <p>But enough about me, this is about you!</p>
-
-          <p>Code for Designers is about helping you learn to code, in the way designers, like you and me, like to learn. No more boring demos, technical babble, or ugly examples — I&rsquo;ll help you finally learn what it takes to go from idea to execution.</p>
-
-          <p>I can&rsquo;t wait to start sharing what I&rsquo;ve learned with you. Right now I&rsquo;m designing the video lessons, writing articles, and designing fun exercises to let your imagination run free.</p>
-
-          <p>Want to know when things are ready? Sign up below. I&rsquo;ll keep you up-to-date with the site&rsquo;s progress and send fun tips your way.</p>
-        </div>
-      </div>
-
-
-
+          </div>
+        </footer>
+      </article>
 
       <div id="newsletter-signup" class="cta-block">
         <div class="cta-block__bg-1"></div>
