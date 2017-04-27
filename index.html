@@ -138,11 +138,27 @@
       border: 0;
       border-radius: 44px;
       color: #fff;
+      cursor: pointer;
       display: inline-block;
       font: inherit;
       font-weight: 700;
       line-height: 1;
       padding: 13px 32px;
+      text-decoration: none;
+      transition: background-color .2s ease-in-out;
+    }
+    .button:hover,
+    .button:focus {
+      background-color: #39c552;
+      color: #fff;
+    }
+
+    .button--secondary {
+      background: transparent;
+      border: 1px solid #39c552;
+      color: #39c552;
+      font-size: 14px;
+      padding: 9px 20px;
     }
 
     /* LAYOUT */
@@ -152,8 +168,28 @@
       padding: 0 20px;
     }
 
+    .l--columns--small {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     .l--columns__column {
       margin: 30px 0;
+    }
+
+    .l--columns__column--small {
+      flex: 1 1 100%;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-right: 10px;
+    }
+    .l--columns__column--small:last-child {
+      padding-right: 0;
+    }
+    .l--columns__column--small:only-of-type {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     @media screen and (min-width: 600px) {
@@ -205,7 +241,7 @@
     }
 
     .site__header {
-      padding: 80px 0 40px 0;
+      padding: 30px 20px 60px;
     }
 
     .site__main {
@@ -289,9 +325,20 @@
       padding-bottom: 10px;
     }
 
+    /* logo */
+    .logo {
+      color: #000;
+      font-weight: 700;
+      line-height: 1;
+      padding: 8px 0;
+    }
+
     /* UTILITIES */
     .u--text-center {
       text-align: center;
+    }
+    .u--text-right {
+      text-align: right;
     }
 
     .u--text-on-pattern {
@@ -312,10 +359,19 @@
 <body class="no-js">
   <div class="site">
     <header class="site__header" role="banner">
-      <h1 class="u--text-center">Code for Designers</h1>
+      <div class="l--columns l--columns--small">
+        <div class="l--columns__column l--columns__column--small">
+          <div class="logo">Code for Designers</div>
+        </div>
+        <div class="l--columns__column l--columns__column--small">
+          <div class="u--text-right"><a href="#newsletter-signup" class="button button--secondary js--scrollTo">sign up</a></div>
+        </div>
+      </div>
     </header>
     <main class="site__main" role="main">
       <div class="l--constrain">
+
+        <h1 class="u--text-center">Finally, learn what it really takes to make your designs a reality</h1>
         <div>
           <div class="u--text-center">
             <img src="/images/ezekiel-zeke-binion-designer.jpg" alt="Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on" class="media--rounded media--300" />
@@ -340,7 +396,7 @@
 
 
 
-      <div class="cta-block">
+      <div id="newsletter-signup" class="cta-block">
         <div class="cta-block__bg-1"></div>
         <div class="cta-block__bg-2"></div>
 
@@ -401,7 +457,7 @@
             <footer class="l--columns--spaced" role="contentinfo">
               <div class="l--columns__column">
                 <div class="u--text-center u--text-on-pattern">
-                  <small>&copy; 2017, <a href="http://gridshiftdesign.com">Grid Shift LLC</a>, the studio of product designer <a href="http://ezekielbinion.com">Zeke Binion</a></small>
+                  <small>&copy; 2017, <a href="http://gridshiftdesign.com">Grid Shift LLC</a>, the studio of product designer <a href="http://ezekielbinion.com">Zeke&nbsp;Binion</a></small>
                 </div>
               </div>
             </footer>
@@ -423,6 +479,8 @@
   </script>
 
   <!-- JavaScript goes below here. (Let's avoid blocking rendering) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
   <script>
     // let our css know if JS is available
     (() => {
@@ -500,6 +558,17 @@
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.js--field').forEach((fieldContainerEle) => {
         new MoveLabel(fieldContainerEle)
+      })
+
+      // ScrollTo
+      document.querySelectorAll('.js--scrollTo').forEach((linkEle) => {
+        linkEle.addEventListener('click', (event) => {
+          event.preventDefault()
+          TweenLite.to(window, .75, {
+            ease: Strong.easeInOut,
+            scrollTo: event.target.getAttribute('href')
+          })
+        })
       })
     })
   </script>
