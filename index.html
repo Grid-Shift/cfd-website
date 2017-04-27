@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,6 +41,14 @@
       font-weight: 400;
       line-height: 1.5;
       margin: 0;
+    }
+    .js body {
+      opacity: 0;
+    }
+    .js.wf-active body,
+    .js.wf-inactive body {
+      opacity: 1;
+      transition: opacity 1s ease-out;
     }
 
     img {
@@ -250,6 +258,16 @@
 
     /* MODULES */
     /* article */
+    .js .article {
+      transform: translateY(50px);
+    }
+
+    .js.wf-active .article,
+    .js.wf-inactive .article {
+      transform: translateY(0);
+      transition: transform 1s ease-out;
+    }
+
     .article__header {
       margin-bottom: 30px;
     }
@@ -291,6 +309,7 @@
     /* cta block */
     .cta-block {
       background: #F5F5F5 url('/images/cta-bg-letters.svg') center top;
+      /*background-attachment: fixed;*/
       margin-top: 40px;
       padding: 40px 0;
       position: relative;
@@ -316,6 +335,19 @@
     .cta-block__content {
       position: relative;
       z-index: 2;
+    }
+    .js .cta-block__content {
+      opacity: 0;
+      transform: translateY(50px);
+      will-change: opacity transform;
+    }
+    .js .cta-block__content.is--on-screen {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .2s;
+      transition-duration: .5s;
+      transition-timing-function: ease-out;
+      transition-property: opacity transform;
     }
 
     @media screen and (min-width: 600px) {
@@ -401,18 +433,26 @@
       text-shadow: 0 0 10px #F5F5F5;
     }
   </style>
-  <!-- Analytics -->
+
   <script>
+    // Analytics
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga')
 
-    ga('create', 'UA-26441162-2', 'auto');
-    ga('send', 'pageview');
+    ga('create', 'UA-26441162-2', 'auto')
+    ga('send', 'pageview')
+
+    // let our css know if JS is available
+    document.addEventListener('DOMContentLoaded', () => {
+      const htmlElement = document.querySelector('html')
+      htmlElement.classList.remove('no-js')
+      htmlElement.classList.add('js')
+    })
   </script>
 </head>
-<body class="no-js">
+<body>
   <div class="site">
     <header class="site__header" role="banner">
       <div class="l--columns l--columns--small">
@@ -469,7 +509,7 @@
         <div class="cta-block__bg-1"></div>
         <div class="cta-block__bg-2"></div>
 
-        <div class="cta-block__content">
+        <div class="cta-block__content js--is-onscreen">
           <div class="l--constrain">
             <!-- START: MailChimp Signup Form -->
             <form action="//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&amp;id=5e3811f11f" method="post" id="mc-embedded-subscribe-form" class="js--validate" name="mc-embedded-subscribe-form" target="_blank">
@@ -537,8 +577,8 @@
   </div>
 
   <!-- JavaScript goes below here. (Let's avoid blocking rendering) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" async></script>
   <!-- Typekit -->
   <script>
     (function(d) {
@@ -551,23 +591,15 @@
     })(document);
   </script>
   <script>
-    // let our css know if JS is available
-    (() => {
-      const bodyElement = document.querySelector('body')
-      bodyElement.classList.remove('no-js')
-      bodyElement.classList.add('js')
-    })()
-
     class MoveLabel {
       constructor(fieldContainerEle, options) {
-        // Setup defaultOptions
+        // Setup
         const defaultOptions = {
           fieldSelector: '.js--field__input',
           labelSelector: '.js--field__label',
           labelIsDirtyClass: 'field__label--is-dirty',
           fieldIsDirtyClass: 'field__input--is-dirty'
         }
-
         this.options = Object.assign({}, defaultOptions, options)
         this.fieldContainerEle = fieldContainerEle
         this.fieldEle = this.fieldContainerEle.querySelector(this.options.fieldSelector)
@@ -619,19 +651,70 @@
         // this.fieldContainerEle =
 
         // Bind this to methods that need it
+        // listen to 'compositionupdate' for speech to text
 
         // TODO: finish inline validation
       }
     }
 
+    class onScreen {
+      constructor(element, classToAdd='is--on-screen') {
+        this.element = element
+        this.classToAdd = classToAdd
+
+        this.scrollThrottle = this.scrollThrottle.bind(this)
+        this.isOnScreen = this.isOnScreen.bind(this)
+        this.toggleOnScreenClass = this.toggleOnScreenClass.bind(this)
+
+        window.addEventListener('scroll', () => {
+            this.scrollThrottle(this.toggleOnScreenClass)
+        })
+      }
+
+      scrollThrottle(callback) {
+        window.requestAnimationFrame(() => {
+          callback()
+        })
+      }
+
+      isOnScreen() {
+        // TODO: Handle scrolling past target
+        const scrollBarPos = document.body.scrollTop
+        const windowHeight = window.innerHeight
+        let elementPos = this.element.offsetTop
+        if (this.element.offsetParent) {
+          elementPos += this.element.offsetParent.offsetTop
+        }
+
+        if (scrollBarPos + windowHeight >= elementPos) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      toggleOnScreenClass() {
+        if(this.isOnScreen()) {
+          this.element.classList.add(this.classToAdd)
+        } else {
+          this.element.classList.remove(this.classToAdd)
+        }
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.js--field').forEach((fieldContainerEle) => {
-        new MoveLabel(fieldContainerEle)
+      // MoveLabel
+      document.querySelectorAll('.js--field').forEach((element) => {
+        new MoveLabel(element)
+      })
+      // onScreen
+      document.querySelectorAll('.js--is-onscreen').forEach((element) => {
+        new onScreen(element)
       })
 
       // ScrollTo
-      document.querySelectorAll('.js--scrollTo').forEach((linkEle) => {
-        linkEle.addEventListener('click', (event) => {
+      document.querySelectorAll('.js--scrollTo').forEach((element) => {
+        element.addEventListener('click', (event) => {
           event.preventDefault()
           event.target.blur()
 
