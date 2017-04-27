@@ -95,6 +95,10 @@
       margin-bottom: 0;
     }
 
+    .text--small {
+      font-size: 14px;
+    }
+
     /* INLINE TEXT */
     a {
       color: inherit;
@@ -165,7 +169,6 @@
       background: transparent;
       border: 1px solid #39c552;
       color: #39c552;
-      font-size: 14px;
       padding: 9px 20px;
     }
 
@@ -339,15 +342,14 @@
     .js .cta-block__content {
       opacity: 0;
       transform: translateY(50px);
+      transition-duration: .5s;
+      transition-timing-function: ease-out;
+      transition-property: opacity transform;
       will-change: opacity transform;
     }
     .js .cta-block__content.is--on-screen {
       opacity: 1;
       transform: translateY(0);
-      transition-delay: .2s;
-      transition-duration: .5s;
-      transition-timing-function: ease-out;
-      transition-property: opacity transform;
     }
 
     @media screen and (min-width: 600px) {
@@ -432,6 +434,24 @@
     .u--text-on-pattern {
       text-shadow: 0 0 10px #F5F5F5;
     }
+
+    .u--is-hidden {
+      display: none;
+    }
+
+    .u--is-visible {
+      display: initial;
+    }
+
+    @media screen and (min-width: 600px) {
+      .u--is-medium-hidden {
+        display: none;
+      }
+
+      .u--is-medium-visible {
+        display: initial;
+      }
+    }
   </style>
 
   <script>
@@ -455,13 +475,17 @@
 <body>
   <div class="site">
     <header class="site__header" role="banner">
-      <div class="l--columns l--columns--small">
+      <div class="l--columns l--columns--vertically-centered l--columns--small">
         <div class="l--columns__column l--columns__column--small">
-          <div class="logo">Code for Designers</div>
+          <span class="logo">Code for Designers</span>
+          <span class="u--is-visible u--is-medium-hidden"><a href="https://gridshift1.typeform.com/to/sn5Mq7" class="text--small" target="_blank">got a coding challenge?</a>&nbsp;</span>
         </div>
-        <div class="l--columns__column l--columns__column--small">
-          <div class="u--text-right"><a href="#newsletter-signup" class="button button--secondary js--scrollTo">sign up</a></div>
-        </div>
+        <nav class="l--columns__column l--columns__column--small">
+          <div class="u--text-right">
+            <span class="u--is-hidden u--is-medium-visible"><a href="https://gridshift1.typeform.com/to/sn5Mq7" class="text--small" target="_blank">got a coding challenge?</a>&nbsp;</span>
+            <a href="#newsletter-signup" class="text--small button button--secondary js--scrollTo">sign up</a>
+          </div>
+        </nav>
       </div>
     </header>
     <main class="site__main" role="main">
@@ -567,6 +591,8 @@
               <div class="l--columns__column">
                 <div class="u--text-center u--text-on-pattern">
                   <small>&copy; 2017, <a href="http://gridshiftdesign.com">Grid Shift LLC</a>, the studio of product designer <a href="http://ezekielbinion.com">Zeke&nbsp;Binion</a></small>
+                  <br>
+                  <a href="https://gridshift1.typeform.com/to/sn5Mq7" class="text--small" target="_blank">Got a coding challenge?</a>
                 </div>
               </div>
             </footer>
@@ -661,17 +687,18 @@
       constructor(element, classToAdd='is--on-screen') {
         this.element = element
         this.classToAdd = classToAdd
+        this.offsetDistance = 200
 
         this.scrollThrottle = this.scrollThrottle.bind(this)
         this.isOnScreen = this.isOnScreen.bind(this)
         this.toggleOnScreenClass = this.toggleOnScreenClass.bind(this)
 
+        this.toggleOnScreenClass()
         window.addEventListener('scroll', () => {
             this.scrollThrottle(this.toggleOnScreenClass)
         })
       }
 
-      this.toggleOnScreenClass()
       scrollThrottle(callback) {
         window.requestAnimationFrame(() => {
           callback()
@@ -687,7 +714,7 @@
           elementPos += this.element.offsetParent.offsetTop
         }
 
-        if (scrollBarPos + windowHeight >= elementPos) {
+        if (scrollBarPos + windowHeight - this.offsetDistance >= elementPos) {
           return true
         } else {
           return false
