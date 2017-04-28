@@ -35,7 +35,7 @@
     }
 
     body {
-      color: #606061;
+      color: #505051;
       font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 18px;
       font-weight: 400;
@@ -108,6 +108,11 @@
     a:hover,
     a:focus {
       color: #49D562;
+    }
+
+    strong,
+    b {
+      color: #000;
     }
 
     small {
@@ -497,15 +502,37 @@
         </header>
         <div class="article__content">
           <div class="l--constrain">
-            <p>Hey! I&rsquo;m <a href="http://ezekielbinion.com">Zeke Binion,</a> a User Experience Generalist (<abbr title="also known as">aka</abbr> designer, researcher, and coder) hailing from Chicago. I have over a decade of experience in design and technology. Over the course of that time, I&rsquo;ve been fortunate enough to have to opportunity to lead a hybrid team of UX designers and developers, work for a number of design agencies, and design for a wide range of companies from the Fortune 100 to mom-and-pop shops.</p>
+            <p>As designers, especially those of us that work on the web, we understand the importance of learning how to code.</p>
 
-            <p>But enough about me, this is about you!</p>
+            <p>Learning to code empowers designers to explore how new innovations can create delightful experiences for our customers.</p>
 
-            <p>Code for Designers is about helping you learn to code, in the way designers, like you and me, like to learn. No more boring demos, technical babble, or ugly examples — I&rsquo;ll help you finally learn what it takes to go from idea to execution.</p>
+            <p>Learning to code creates a common language between designers and developers.</p>
 
-            <p>I can&rsquo;t wait to start sharing what I&rsquo;ve learned with you. Right now I&rsquo;m designing the video lessons, writing articles, and designing fun exercises to let your imagination run free.</p>
+            <p>Learning to code ensures that the designer&#8217;s creative vision is carried through from concept to execution.</p>
 
-            <p>Want to know when things are ready? Sign up below. I&rsquo;ll keep you up-to-date with the site&rsquo;s progress and send fun tips your way.</p>
+            <p><strong>But, learning to code isn&#8217;t easy.</strong></p>
+
+            <p>Turning a mock-up into working code can take no less than 3&#8211;4 different programming languages working in together in a Beethoven-like symphony to make it happen. If you happen to understand how to make these programming languages talk to each other, you&rsquo;re then rewarded with the opportunity to deal with servers, version control, and build tools. If you&#8217;re new to coding, I may as well be speaking in Klingon.</p>
+
+            <p>In the face of these challenges, how do designers learn to code?</p>
+
+            <p>Over the years, I&rsquo;ve mentored dozens of designers as they&rsquo;ve gone through the journey of learning to code. They&#8217;ve tried everything from online tutorials and coding boot camps to universities. No matter the path, the end result is usually the same.</p>
+
+            <p>They struggle to make their CSS &quot;production-ready.” </p>
+
+            <p>They struggle to integrate their code with backend or content management systems (WordPress, Ruby on Rails, etc.).</p>
+
+            <p>They struggle to figure out how to modify a plug-in so that it will do exactly what they need.</p>
+
+            <p>Simply put &hellip; they struggle to apply their new found skills in the real world.</p>
+
+            <p><strong>If this sounds like you, I want to help.</strong></p>
+
+            <p>Code for Designers won&rsquo;t just teach the basics of how to code. I&rsquo;ll help you figure out what it really takes to make your designs a reality.</p>
+
+            <p>Sign up for the weekly newsletter below. Each week, I&rsquo;ll send you&rsquo;ll receive a short video tutorial of how I work through complex UI challenges. No more ugly demos, technical babel, or boring lectures — I&rsquo;ll help you finally get over the hump and truly learn to code.</p>
+
+            <p>Even better, you&rsquo;ll also have the opportunity to send me a problem that you&rsquo;re working on. If selected, I&rsquo;ll create a video walkthrough of me working through the problem you&rsquo;re facing.</p>
           </div>
         </div>
         <footer class="article__footer">
@@ -687,7 +714,7 @@
       constructor(element, classToAdd='is--on-screen') {
         this.element = element
         this.classToAdd = classToAdd
-        this.offsetDistance = 200
+        this.offsetDistance = 150
 
         this.scrollThrottle = this.scrollThrottle.bind(this)
         this.isOnScreen = this.isOnScreen.bind(this)
