@@ -42,7 +42,24 @@
     @-ms-viewport{
       width: device-width;
     }
+    /* variables */
+    :root {
+      --grey-light: #F5F5F5;
+      --black: #505051;
+      --black-rich: #000;
+      --blue: #3782FF;
+      --color-action: #3782FF;
+      --color-action-hover: #1762FF;
+      --color-background: #F5F5F5;
+      --color-error: #E4500B;
+      --color-error-background: #F9DCCE;
+      --color-knockout: #fff;
+      --color-shadow: rgba(0,0,0,.2);
+      --color-text: #505051;
+      --color-text-bold: #000;
+    }
 
+    /* base */
     * {
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
@@ -50,7 +67,7 @@
     }
 
     body {
-      color: #505051;
+      color: var(--color-text);
       font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 18px;
       font-weight: 400;
@@ -75,7 +92,7 @@
     h2,
     h3,
     h4 {
-      color: #000;
+      color: var(--color-text-bold);
       font-weight: 700;
       line-height: 1.15;
       margin: 1em 0;
@@ -127,12 +144,12 @@
     }
     a:hover,
     a:focus {
-      color: #3782FF;
+      color: var(--color-action);
     }
 
     strong,
     b {
-      color: #000;
+      color: var(--color-text-bold);
     }
 
     small {
@@ -150,11 +167,11 @@
     /* FORMS */
     .input {
       -webkit-appearance: none;
-      background: #fff;
+      background: var(--color-knockout);
       border: 0;
       border-radius: 2px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.2);
-      color: #000;
+      box-shadow: 0 1px 4px var(--color-shadow);
+      color: var(--color-text-bold);
       font: inherit;
       padding: 13px;
       width: 100%;
@@ -171,10 +188,10 @@
 
     .button {
       -webkit-appearance: none;
-      background: #1762FF;
+      background: var(--color-action-hover);
       border: 0;
       border-radius: 44px;
-      color: #fff;
+      color: var(--color-knockout);
       cursor: pointer;
       display: inline-block;
       font: inherit;
@@ -186,14 +203,14 @@
     }
     .button:hover,
     .button:focus {
-      background-color: #3782FF;
-      color: #fff;
+      background-color: var(--color-action);
+      color: var(--color-knockout);
     }
 
     .button--secondary {
       background: transparent;
-      border: 1px solid #1762FF;
-      color: #1762FF;
+      border: 1px solid var(--color-action-hover);
+      color: var(--color-action-hover);
       padding: 9px 20px;
     }
 
@@ -285,6 +302,22 @@
     }
 
     /* MODULES */
+    /* alert */
+    .alert {
+      background-color: var(--color-error-background);
+      border: 1px solid var(--color-error);
+      border-radius: 3px;
+      color: var(--color-error);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 1em;
+      text-align: center;
+      transition: opacity .3s ease-in-out;
+    }
+    .alert.is--hidden {
+      opacity: 0;
+    }
+
     /* article */
     .js .article {
       transform: translateY(50px);
@@ -325,7 +358,7 @@
     }
 
     .bio__name {
-      color: #000;
+      color: var(--color-text-bold);
       font-weight: 700;
       text-decoration: none;
     }
@@ -336,7 +369,7 @@
 
     /* cta block */
     .cta-block {
-      background: #F5F5F5 url('/images/cta-bg-letters.svg') center top;
+      background: var(--color-background) url('/images/cta-bg-letters.svg') center top;
       margin-top: 40px;
       padding: 40px 0;
       position: relative;
@@ -390,9 +423,9 @@
     }
 
     .field__error {
-      text-shadow: 3px 3px 1px #F5F5F5, 3px 0 1px #F5F5F5, 0 3px 1px #F5F5F5, -3px -3px 1px #F5F5F5, -3px 0 1px #F5F5F5, 0 -3px 1px #F5F5F5, 0 0 5px #F5F5F5;
-      border-top: 3px solid #AB3600;
-      color: #AB3600;
+      text-shadow: 3px 3px 1px var(--color-background), 3px 0 1px var(--color-background), 0 3px 1px var(--color-background), -3px -3px 1px var(--color-background), -3px 0 1px var(--color-background), 0 -3px 1px var(--color-background), 0 0 5px var(--color-background);
+      border-top: 3px solid var(--color-error);
+      color: var(--color-error);
       font-size: 14px;
       font-weight: 700;
       padding: 10px 0;
@@ -400,7 +433,6 @@
     }
     .field__error.is--hidden {
       opacity: 0;
-      visibility: hidden;
     }
 
     .field__label {
@@ -433,7 +465,7 @@
 
     /* logo */
     .logo {
-      color: #000;
+      color: var(--color-text-bold);
       font-weight: 700;
       line-height: 1;
       padding: 8px 0;
@@ -470,7 +502,7 @@
     }
 
     .u--text-on-pattern {
-      text-shadow: 0 0 10px #F5F5F5;
+      text-shadow: 0 0 10px var(--color-background);
     }
 
     .u--is-hidden {
@@ -489,6 +521,14 @@
       .u--is-medium-visible {
         display: initial;
       }
+    }
+
+    .is--hidden {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px; width: 1px;
+      margin: -1px; padding: 0; border: 0;
     }
   </style>
 
@@ -607,7 +647,7 @@
                 <small>(All fields below are required.)</small>
               </p>
 
-              <div class="alert" role="alert" aria-live="polite"></div>
+              <div class="alert is--hidden js--validate__alert" role="alert" aria-live="polite"></div>
 
               <div class="l--columns l--columns--spaced l--columns--break-grid">
                 <div class="l--columns__column">
@@ -723,14 +763,51 @@
       constructor(formEle, options) {
         // Setup defaults
         const defaultOptions = {
+          errorEleSelector: '.js--validate__alert',
+          errorHiddenClass: 'is--hidden',
+          errorMessage: 'There were errors with your submission. Check the fields below.'
         }
         this.options = Object.assign({}, defaultOptions, options)
 
         // Capture necessary elements
         this.formEle = formEle
+        this.formEle.setAttribute('novalidate', true)
+        this.errorEle = formEle.querySelector(this.options.errorEleSelector)
 
         // Bind this to methods that need it
         // this.methodName = this.methodName.bind(this)
+        this.handleSubmission = this.handleSubmission.bind(this)
+        this.hideError = this.hideError.bind(this)
+        this.showError = this.showError.bind(this)
+
+        this.formEle.addEventListener('submit', this.handleSubmission)
+      }
+
+      handleSubmission(event) {
+        let isValid = true
+        this.errorEle.innerHTML = ''
+
+        this.formEle.querySelectorAll('input').forEach((input) => {
+          if(!input.checkValidity()) {
+            isValid = false
+          }
+        })
+
+        if(isValid === false) {
+          event.preventDefault()
+          this.errorEle.innerHTML = this.options.errorMessage
+          this.showError()
+        } else {
+          this.hideError()
+        }
+      }
+
+      hideError() {
+        this.errorEle.classList.add(this.options.errorHiddenClass)
+      }
+
+      showError() {
+        this.errorEle.classList.remove(this.options.errorHiddenClass)
       }
     }
 
@@ -796,7 +873,7 @@
       }
 
       createErrorMessage() {
-        for(const messageName in this.messageNames) {
+        for(let messageName in this.messageNames) {
           if(this.fieldEle.validity[messageName]) {
             this.fieldEle.setCustomValidity(this.options.messages[messageName])
             break
@@ -810,7 +887,6 @@
 
       hideError() {
         this.errorEle.classList.add(this.options.errorHiddenClass)
-        window.console.log('Hide error')
       }
 
       initListeners() {
@@ -824,10 +900,8 @@
         this.destroyErrorMessage()
 
         if(validity.valid) {
-          window.console.log('inputChangeHandler: true')
           this.hideError()
         } else {
-          window.console.log('inputChangeHandler: false')
           this.createErrorMessage()
           this.showError()
         }
@@ -915,6 +989,8 @@
       })
 
       // Form validation
+      new FormValidation(document.querySelector('.js--validate'))
+      // Field Validation
       document.querySelectorAll('.js--field').forEach((element) => {
         new InputValidation(element)
       })
