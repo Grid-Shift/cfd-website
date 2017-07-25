@@ -763,6 +763,7 @@
       constructor(formEle, options) {
         // Setup defaults
         const defaultOptions = {
+          onSubmit: () => {},
           errorEleSelector: '.js--validate__alert',
           errorHiddenClass: 'is--hidden',
           errorMessage: 'There were errors with your submission. Check the fields below.'
@@ -799,6 +800,7 @@
           this.showError()
         } else {
           this.hideError()
+          this.options.onSubmit()
         }
       }
 
@@ -989,7 +991,17 @@
       })
 
       // Form validation
-      new FormValidation(document.querySelector('.js--validate'))
+      new FormValidation(document.querySelector('.js--validate'), {
+        onSubmit: () => {
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Form',
+            eventAction: 'submit',
+            eventLabel: 'Newsletter Signup',
+            transport: 'beacon'
+          })
+        }
+      })
       // Field Validation
       document.querySelectorAll('.js--field').forEach((element) => {
         new InputValidation(element)
