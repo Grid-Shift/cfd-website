@@ -939,7 +939,7 @@
 
       isOnScreen() {
         // TODO: Handle scrolling past target
-        const scrollBarPos = document.body.scrollTop
+        const scrollBarPos = document.scrollingElement.scrollTop
         const windowHeight = window.innerHeight
         let elementPos = this.element.offsetTop
         if (this.element.offsetParent) {
