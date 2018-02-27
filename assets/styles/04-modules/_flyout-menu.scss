@@ -1,0 +1,63 @@
+/* =============================================================================
+    Flyout Menu
+
+    Table of Contents
+    - Container
+    - Nav
+    - Trigger
+    - Social
+
+  =========================================================================== */
+
+
+/* -----------------------------------------------------------------------------
+    !-- Container
+  --------------------------------------------------------------------------- */
+
+.flyout-menu {
+  background: $c--brand--primary;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  z-index: $zIndex--nav;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+    !-- Nav
+  --------------------------------------------------------------------------- */
+
+
+.flyout-menu__nav {
+  margin-bottom: $gutter/2;
+}
+
+/* -----------------------------------------------------------------------------
+    !-- Trigger
+  --------------------------------------------------------------------------- */
+
+.flyout-menu__trigger {
+  color: $c--knockout;
+  position: absolute;
+  top: 48px; // magic number to align close and open buttons
+  right: $gutter / 2;
+}
+
+/* -----------------------------------------------------------------------------
+    !-- Social
+  --------------------------------------------------------------------------- */
+
+.flyout-menu__social {
+  justify-self: flex-end;
+  padding-bottom: 60px; // To ensure scrolling clears the IOS safari bar
+}

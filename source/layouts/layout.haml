@@ -1,0 +1,100 @@
+!!!5
+%html.no-js{lang: 'en'}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %title= meta_title
+    %meta{content: meta_description, name: "description"}
+    %meta{content: "width=device-width", name: "viewport"}
+
+    -# Open Graph
+    %meta{property: "og:title", description: social_title}
+    %meta{property: "og:type", description: "website"}
+    -# TODO: %meta{property: "og:url", description: "https://codefordesigners.com"}
+    -# TODO: %meta{property: "og:image", description: current_page.data.thumbnail}
+    %meta{property: "og:description", description: meta_description}
+    %meta{property: "og:site_name", description: t(:site_name)}
+
+    -# Favicons
+    %link{rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "apple-touch-icon-57x57.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "apple-touch-icon-57x57.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "apple-touch-icon-114x114.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "apple-touch-icon-114x114.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "apple-touch-icon-72x72.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "apple-touch-icon-72x72.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "apple-touch-icon-144x144.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "apple-touch-icon-144x144.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "apple-touch-icon-60x60.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "apple-touch-icon-60x60.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "apple-touch-icon-120x120.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "apple-touch-icon-120x120.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "apple-touch-icon-76x76.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "apple-touch-icon-76x76.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "apple-touch-icon-152x152.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "apple-touch-icon-152x152.png"}
+    %link{rel: "icon", type: "image/png", href: "favicon-196x196.png", sizes: "196x196"}
+    %link{rel: "icon", type: "image/png", href: "favicon-196x196.png", sizes: "196x196"}
+    %link{rel: "icon", type: "image/png", href: "favicon-96x96.png", sizes: "96x96"}
+    %link{rel: "icon", type: "image/png", href: "favicon-96x96.png", sizes: "96x96"}
+    %link{rel: "icon", type: "image/png", href: "favicon-32x32.png", sizes: "32x32"}
+    %link{rel: "icon", type: "image/png", href: "favicon-32x32.png", sizes: "32x32"}
+    %link{rel: "icon", type: "image/png", href: "favicon-16x16.png", sizes: "16x16"}
+    %link{rel: "icon", type: "image/png", href: "favicon-16x16.png", sizes: "16x16"}
+    %link{rel: "icon", type: "image/png", href: "favicon-128.png", sizes: "128x128"}
+    %link{rel: "icon", type: "image/png", href: "favicon-128.png", sizes: "128x128"}
+    %meta{name: "application-name", content: "Code for Designers"}
+    %meta{name: "application-name", content: "Code for Designers"}
+    %meta{name: "msapplication-TileColor", content: "#FFFFFF"}
+    %meta{name: "msapplication-TileColor", content: "#FFFFFF"}
+    %meta{name: "msapplication-TileImage", content: "mstile-144x144.png"}
+    %meta{name: "msapplication-TileImage", content: "mstile-144x144.png"}
+    %meta{name: "msapplication-square70x70logo", content: "mstile-70x70.png"}
+    %meta{name: "msapplication-square70x70logo", content: "mstile-70x70.png"}
+    %meta{name: "msapplication-square150x150logo", content: "mstile-150x150.png"}
+    %meta{name: "msapplication-square150x150logo", content: "mstile-150x150.png"}
+    %meta{name: "msapplication-wide310x150logo", content: "mstile-310x150.png"}
+    %meta{name: "msapplication-wide310x150logo", content: "mstile-310x150.png"}
+    %meta{name: "msapplication-square310x310logo", content: "mstile-310x310.png"}
+    %meta{name: "msapplication-square310x310logo", content: "mstile-310x310.png"}
+
+    -# CSS
+    = stylesheet_link_tag "screen"
+
+    -# Inform CSS if JS is available
+    :javascript
+      (function() {
+        var docElement = document.documentElement
+        docElement.classList.remove('no-js')
+        docElement.classList.add('js')
+      })()
+
+    - unless environment == :development
+      -# Google Analytics
+      %script{src: "https://www.googletagmanager.com/gtag/js?id=UA-26441162-2", async: true}
+      :javascript
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-26441162-2');
+
+  %body{class: cfd_page_classes}
+    /[if lte IE 10] <div class="notice notice--warning" role="alert"><strong>Unsupported Browser!</strong> Your browser isn't supported by this site. <a href="http://browsehappy.com/">Upgrade to a different browser</a> for the best possible experience.</div>
+    %noscript
+      .notice.notice--warning{role: "alert"}
+        <strong>JavaScript not available!</strong> This site uses JavaScript to provide an enhanced experience. For the best possible experience, turn on JavaScript or use a <a href="http://browsehappy.com/">modern browser.</a>
+
+    = yield
+
+    -# Typekit
+    :javascript
+      (function(d) {
+        var config = {
+          kitId: 'qni5tlo',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+
+    -# JS bundle
+    = javascript_include_tag "app"

@@ -1,0 +1,27 @@
+{
+  "images": {
+    "extensions": [
+      "gif",
+      "jpeg",
+      "jpg",
+      "png",
+      "svg"
+    ]
+  },
+  "scripts": {
+    "extensions": [
+      "js"
+    ]
+  },
+  "styles": {
+    "extensions": [
+      "scss",
+      "sass"
+    ],
+    "sass": {
+      "outputStyle": "compressed"
+    }
+  },
+  "sprite": {
+  }
+}

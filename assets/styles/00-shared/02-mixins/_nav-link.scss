@@ -1,0 +1,10 @@
+@mixin nav-link() {
+  color: $gray--light;
+  font-size: $fontSize--small;
+
+  &:focus,
+  &:hover {
+    color: $c--link;
+    text-decoration: none;
+  }
+}

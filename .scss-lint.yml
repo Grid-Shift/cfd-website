@@ -1,0 +1,18 @@
+scss_files: 'source/stlyes/**/*.css.scss'
+
+linters:
+  ChainedClasses:
+    enabled: true
+  DisableLinterReason:
+    enabled: true
+  ExtendDirective:
+    enabled: true
+  PrivateNamingConvention:
+    enabled: true
+    prefix: '_'
+  PropertyUnits:
+    global: ['em', 'rem', '%', 'vh', 'vw'] # Allow relative units globally
+    properties:
+      border: ['px'] # Only pixels
+      font-size: ['pt', 'em']
+      line-height: [] # No units allowed

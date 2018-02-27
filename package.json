@@ -1,0 +1,56 @@
+{
+  "name": "ezekielbinion.com",
+  "version": "1.0.0",
+  "description": "Personal website of Ezekiel Binion",
+  "main": "index.js",
+  "repository": "git@github.com:ebinion/ezekielbinion.com.git",
+  "author": "Ezekiel Binion <ebinion@gmail.com>",
+  "license": "none",
+  "engine": ">=6.10",
+  "browserslist": [
+    "> .2%",
+    "last 1 versions",
+    "not IE < 11"
+  ],
+  "scripts": {
+    "start": "bundle exec middleman server",
+    "generate": "bundle exec middleman build",
+    "assets": "./node_modules/.bin/gulp",
+    "assets:production": "NODE_ENV=production ./node_modules/.bin/gulp build:production",
+    "assets:watch": "./node_modules/.bin/gulp watch",
+    "browsersync": "./node_modules/.bin/browser-sync start --proxy 'localhost:4567' --files './source/**/*' './assets/**/*' './data/**/*' './locales/**/*' "
+  },
+  "dependencies": {
+    "firebase": "^4.1.1",
+    "underscore": "^1.8.3",
+    "underscores": "^0.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babili-webpack-plugin": "^0.1.1",
+    "browser-sync": "^2.18.12",
+    "del": "^2.2.2",
+    "gsap": "^1.19.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-svgstore": "^6.1.0",
+    "gulp-watch": "^4.3.11",
+    "node-sass": "^4.5.3",
+    "require-dir": "^0.3.2",
+    "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1",
+    "webpack-stream": "^3.2.0"
+  }
+}

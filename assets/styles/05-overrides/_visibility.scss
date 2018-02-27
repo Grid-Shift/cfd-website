@@ -1,0 +1,48 @@
+/**
+ * Utilities
+ *
+ * Section:
+ * - Hide/Show
+ */
+
+/* ==========================================================================
+   Hide/Show
+   ========================================================================== */
+
+.js--protected {
+  display: none;
+}
+
+.is--hidden {
+  display: none;
+
+  @include media($to: $bp--small ) {
+    &-xsmall-screen-only {
+      display: none;
+    }
+  }
+
+  @include media($bp--small, $to: $bp--medium ) {
+    &-small-screen-only {
+      display: none;
+    }
+  }
+
+  @include media($bp--medium, $to: $bp--large) {
+    &-medium-screen-only {
+      display: none;
+    }
+  }
+
+  @include media($bp--medium) {
+    &-medium-screen-up {
+      display: none;
+    }
+  }
+
+  @include media($bp--large) {
+    &-large-screen-up {
+      display: none;
+    }
+  }
+}

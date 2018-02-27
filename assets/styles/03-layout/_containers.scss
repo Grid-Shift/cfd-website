@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Constainers
+//  - Spacers
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Constainers
+// -----------------------------------------------------------------------------
+
+.l--constrain {
+  margin: 0 auto;
+  max-width: $site--maxWidth;
+  padding: 0 $gutter/2;
+  width: 100%;
+}
+
+.l--max-text {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+
+.l--max {
+  margin: 0 auto;
+
+  @include media($bp--medium) {
+    width: percentage(10/12);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Spacers
+// -----------------------------------------------------------------------------
+
+.l--spaced {
+  padding: $gutter--small 0;
+
+  @include media($bp--medium) {
+    padding: $gutter 0;
+  }
+}
+
+.l--spaced-tight {
+  padding: $gutter--small 0;
+}
+
+.l--spaced-wide {
+  padding: $gutter--small 0;
+
+  @include media($bp--medium) {
+    padding: $gutter--large 0;
+  }
+}

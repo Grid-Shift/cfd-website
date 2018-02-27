@@ -1,0 +1,36 @@
+@mixin media($breakpoint: false, $to: false){
+  $convertedBP: false;
+  $convertedTo: false;
+
+  @if $breakpoint == true {
+    @if unit($breakpoint) == 'px' {
+      $convertedBP: pem($breakpoint) + .001em;
+    } @else if unit($breakpoint) == 'em' {
+      $convertedBP: $breakpoint + .001em;
+    }
+  } @else {
+    $convertedBP: $breakpoint;
+  }
+
+  @if $to == true {
+    @if unit($to) == 'px' {
+      $convertedTo: pem($to);
+    }
+  } @else {
+    $convertedTo: $to;
+  }
+
+  @if $convertedBP and $convertedTo {
+    @media screen and (min-width: $convertedBP) and (max-width: $convertedTo){
+      @content;
+    }
+  } @else if $convertedTo {
+    @media screen and (max-width: $convertedBP) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $convertedBP) {
+      @content;
+    }
+  }
+}
