@@ -1,8 +1,6 @@
-# CodeForDesigners.com
+# Code for Designers - Public Website
 
-The Middleman-based site for Code for Designers.
-
-
+This repo contains the code used to display the public-facing website for Code for Designers.
 
 ## Development
 
