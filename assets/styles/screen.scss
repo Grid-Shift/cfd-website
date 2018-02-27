@@ -11,10 +11,10 @@
  * - Overrides
  */
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Setup
    Charset, viewport settings, @font-face, etc
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
 @charset "UTF-8";
 
@@ -24,538 +24,54 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:300,400,700);
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Shared
    Variables, mixins, extends, etc (order matters)
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-// @import "00-shared/00-variables/animation";
+@import "00-shared/00-variables/colors";
 
-/* ==========================================================================
-   General
-   ========================================================================== */
-
-// @import "01-general/reset";
-
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Base
    Nearly exclusively single element selectors
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-// @import "02-base/buttons";
+@import "01-base/base";
+@import "01-base/forms";
+@import "01-base/headings";
+@import "01-base/inline-text";
+@import "01-base/input";
+@import "01-base/links";
+@import "01-base/media";
+@import "01-base/text-blocks";
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Layout
    Divide the page into sections and hold one or more modules together
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-// @import "03-layout/containers";
+@import "02-layout/columns";
+@import "02-layout/constrain";
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Modules
    Are the reusable, modular parts of our design. They are the callouts,
    the sidebar sections, the product lists and so on
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-// @import "04-modules/article-content";
+@import "03-modules/alert";
+@import "03-modules/article";
+@import "03-modules/bio";
+@import "03-modules/button";
+@import "03-modules/cta-block";
+@import "03-modules/field";
+@import "03-modules/logo";
+@import "03-modules/site";
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    Overrides
    Helpers used to override the state of modules
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-// @import "05-overrides/alignment";
-
-/* ==========================================================================
-   Styles from original site
-
-   ========================================================================== */
-
-/* variables */
-:root {
-  --grey-light: #F5F5F5;
-  --black: #505051;
-  --black-rich: #000;
-  --blue: #3782FF;
-  --color-action: #3782FF;
-  --color-action-hover: #1762FF;
-  --color-background: #F5F5F5;
-  --color-error: #E4500B;
-  --color-error-background: #F9DCCE;
-  --color-knockout: #fff;
-  --color-shadow: rgba(0,0,0,.2);
-  --color-text: #505051;
-  --color-text-bold: #000;
-}
-
-/* base */
-* {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-body {
-  color: var(--color-text);
-  font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
-}
-.js body {
-  opacity: 0;
-}
-.js.wf-active body,
-.js.wf-inactive body {
-  opacity: 1;
-  transition: opacity 1s ease-out;
-}
-
-img {
-  max-width: 100%;
-}
-
-/* HEADINGS */
-h1,
-h2,
-h3,
-h4 {
-  color: var(--color-text-bold);
-  font-weight: 700;
-  line-height: 1.15;
-  margin: 1em 0;
-}
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child {
-  margin-top: 0;
-}
-h1:last-child,
-h2:last-child,
-h3:last-child,
-h4:last-child {
-  margin-bottom: 0;
-}
-
-h1,
-.h1 {
-  font-size: 32px;
-}
-
-h2,
-.h2 {
-  font-size: 1em;
-}
-
-/* PARAGRAPHS */
-p {
-  line-height: 1.6666;
-  margin: 1em 0;
-}
-p:first-child {
-  margin-top: 0;
-}
-p:last-child {
-  margin-bottom: 0;
-}
-
-.text--small {
-  font-size: 14px;
-}
-
-/* INLINE TEXT */
-a {
-  color: inherit;
-  text-decoration: underline;
-  transition: color .2s ease-in-out;
-}
-a:hover,
-a:focus {
-  color: var(--color-action);
-}
-
-strong,
-b {
-  color: var(--color-text-bold);
-}
-
-small {
-  font-size: 13px;
-}
-
-/* IMAGES */
-.media--rounded {
-  border-radius: 50%;
-}
-.media--300 {
-  max-width: 200px;
-}
-
-/* FORMS */
-.input {
-  -webkit-appearance: none;
-  background: var(--color-knockout);
-  border: 0;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px var(--color-shadow);
-  color: var(--color-text-bold);
-  font: inherit;
-  padding: 13px;
-  width: 100%;
-}
-.input:focus {
-  outline: 0;
-}
-
-.label {
-  color: #9B9B9B;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.button {
-  -webkit-appearance: none;
-  background: var(--color-action-hover);
-  border: 0;
-  border-radius: 44px;
-  color: var(--color-knockout);
-  cursor: pointer;
-  display: inline-block;
-  font: inherit;
-  font-weight: 700;
-  line-height: 1;
-  padding: 13px 32px;
-  text-decoration: none;
-  transition: background-color .2s ease-in-out;
-}
-.button:hover,
-.button:focus {
-  background-color: var(--color-action);
-  color: var(--color-knockout);
-}
-
-.button--secondary {
-  background: transparent;
-  border: 1px solid var(--color-action-hover);
-  color: var(--color-action-hover);
-  padding: 9px 20px;
-}
-
-/* LAYOUT */
-.l--constrain {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.l--columns--small {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.l--columns--vertically-centered {
-  align-items: center;
-}
-
-.l--columns__column {
-  margin: 30px 0;
-}
-
-.l--columns__column--small {
-  flex: 1 1 100%;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-right: 10px;
-}
-.l--columns__column--small:last-child {
-  padding-right: 0;
-}
-.l--columns__column--small:only-child {
-  padding-left: 0;
-  padding-right: 0;
-}
-.l--columns__column--one-third {
-  flex-basis: 33.33333%;
-}
-.l--columns__column--one-thirds {
-  flex-basis: 66.66666%;
-}
-
-@media screen and (min-width: 600px) {
-  .l--columns {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  .l--columns--spaced {
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
-  .l--columns--spaced:first-child {
-    margin-top: 0;
-  }
-  .l--columns--spaced:last-child {
-    margin-bottom: 0;
-  }
-
-  .l--columns__column {
-    flex: 1 1 100%;
-    margin: 0;
-    padding-right: 30px;
-  }
-  .l--columns__column:last-child {
-    padding-right: 0;
-  }
-  .l--columns__column:only-child {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .l--columns__column--one-third {
-    flex-basis: 33.33333%;
-  }
-  .l--columns__column--one-thirds {
-    flex-basis: 66.66666%;
-  }
-}
-@media screen and (min-width: 780px) {
-  .l--columns--break-grid {
-    margin-left: -70px;
-    margin-right: -70px;
-    width: calc(100% + 140px);
-  }
-}
-
-/* MODULES */
-/* alert */
-.alert {
-  background-color: var(--color-error-background);
-  border: 1px solid var(--color-error);
-  border-radius: 3px;
-  color: var(--color-error);
-  font-size: 14px;
-  font-weight: 700;
-  padding: 1em;
-  text-align: center;
-  transition: opacity .3s ease-in-out;
-}
-.alert.is--hidden {
-  opacity: 0;
-}
-
-/* article */
-.js .article {
-  transform: translateY(50px);
-}
-
-.js.wf-active .article,
-.js.wf-inactive .article {
-  transform: translateY(0);
-  transition: transform 1s ease-out;
-}
-
-.article__header {
-  margin-bottom: 30px;
-}
-
-.article__footer {
-  margin-top: 30px;
-}
-
-@media screen and (min-width: 600px) {
-  .article__header {
-    margin-bottom: 60px;
-  }
-
-  .article__footer {
-    margin-top: 60px;
-  }
-}
-
-/* bio */
-.bio {
-  margin: 0;
-  padding: 0;
-}
-
-.bio__image {
-  border-radius: 50%;
-}
-
-.bio__name {
-  color: var(--color-text-bold);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.bio__description {
-  font-size: 13px;
-}
-
-/* cta block */
-.cta-block {
-  background: var(--color-background) url('/assets/images/cta-bg-letters.svg') center top;
-  margin-top: 40px;
-  padding: 40px 0;
-  position: relative;
-}
-
-.cta-block__bg-1,
-.cta-block__bg-2 {
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
-.cta-block__bg-1 {
-  background: url('/assets/images/cta-bg-planes.svg') center top;
-}
-.cta-block__bg-2 {
-  background: url('/assets/images/cta-bg-brackets.svg') center top;
-}
-
-.cta-block__content {
-  position: relative;
-  z-index: 2;
-}
-.js .cta-block__content {
-  opacity: 0;
-  transform: translateY(50px);
-  transition-duration: .5s;
-  transition-timing-function: ease-out;
-  transition-property: opacity transform;
-  will-change: opacity transform;
-}
-.js .cta-block__content.is--on-screen {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media screen and (min-width: 600px) {
-  .cta-block {
-    margin-top: 80px;
-    padding-bottom: 80px;
-    padding-top: 80px;
-  }
-}
-
-/* field */
-.field__container {
-  position: relative;
-}
-
-.field__error {
-  text-shadow: 3px 3px 1px var(--color-background), 3px 0 1px var(--color-background), 0 3px 1px var(--color-background), -3px -3px 1px var(--color-background), -3px 0 1px var(--color-background), 0 -3px 1px var(--color-background), 0 0 5px var(--color-background);
-  border-top: 3px solid var(--color-error);
-  color: var(--color-error);
-  font-size: 14px;
-  font-weight: 700;
-  padding: 10px 0;
-  transition: opacity .3s ease-in-out;
-}
-.field__error.is--hidden {
-  opacity: 0;
-}
-
-.field__label {
-  left: 13px;
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition-duration: .15s;
-  transition-timing-function: ease-in-out;
-  transition-property: top transform;
-}
-
-.no-js .field__label,
-.field__label.field__label--is-dirty {
-  font-size: 12px;
-  top: 0;
-  transform: translateY(8px);
-}
-
-.field__input {
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-.no-js .field__input,
-.field__input.field__input--is-dirty {
-  padding-top: 26px;
-  padding-bottom: 10px;
-}
-
-/* logo */
-.logo {
-  color: var(--color-text-bold);
-  font-weight: 700;
-  line-height: 1;
-  padding: 8px 0;
-}
-
-/* site */
-.site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  margin: 0 auto;
-}
-
-.site__header {
-  padding: 30px 20px 60px;
-}
-
-.site__main {
-  flex: 1;
-}
-
-@media screen and (min-width: 600px) {
-  .site__header {
-    padding-bottom: 80px;
-  }
-}
-
-/* UTILITIES */
-.u--text-center {
-  text-align: center;
-}
-.u--text-right {
-  text-align: right;
-}
-
-.u--text-on-pattern {
-  text-shadow: 0 0 10px var(--color-background);
-}
-
-.u--is-hidden {
-  display: none;
-}
-
-.u--is-visible {
-  display: initial;
-}
-
-@media screen and (min-width: 600px) {
-  .u--is-medium-hidden {
-    display: none;
-  }
-
-  .u--is-medium-visible {
-    display: initial;
-  }
-}
-
-.is--hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px; width: 1px;
-  margin: -1px; padding: 0; border: 0;
-}
+@import "04-overrides/text";
+@import "04-overrides/visibility";

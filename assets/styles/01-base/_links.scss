@@ -1,0 +1,9 @@
+a {
+  color: inherit;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
+}
+a:hover,
+a:focus {
+  color: var(--color-action);
+}

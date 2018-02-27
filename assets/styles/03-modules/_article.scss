@@ -1,0 +1,27 @@
+.js .article {
+  transform: translateY(50px);
+}
+
+.js.wf-active .article,
+.js.wf-inactive .article {
+  transform: translateY(0);
+  transition: transform 1s ease-out;
+}
+
+.article__header {
+  margin-bottom: 30px;
+}
+
+.article__footer {
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .article__header {
+    margin-bottom: 60px;
+  }
+
+  .article__footer {
+    margin-top: 60px;
+  }
+}

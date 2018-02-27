@@ -1,0 +1,14 @@
+p {
+  line-height: 1.6666;
+  margin: 1em 0;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text--small {
+  font-size: 14px;
+}
