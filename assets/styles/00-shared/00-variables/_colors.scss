@@ -1,0 +1,36 @@
+// Brand Colors
+$c--brand--primary: #009ad6;
+
+// Named Colors
+$black: #131623;
+$black--rich: #000;
+$blue: $c--brand--primary;
+$blue--dark: #008fc7;
+$blue--light: #00a6e8;
+$gray: #88888d;
+$gray--light: #aaaaaf;
+$green: #00ab1c;
+$green--light: #B4D141;
+$navy: #202538;
+$orange: #E3AC46;
+$orange--red: #EB6A38;
+$yellow: #F3EEAB;
+$white: #fff;
+$white--bone: #f1f1ee;
+
+// UI Colors
+$c--bg: $white--bone;
+$c--body-text: #4A4A4A;
+$c--body-text--bold: $black;
+$c--body-text--light: $gray;
+$c--border: $c--bg;
+$c--border--input: #c1c1bb;
+$c--headline: $navy;
+$c--headline--light: $gray--light;
+$c--knockout: $white;
+$c--knockout--transparent: rgba(255,255,255,0);
+$c--link: $c--brand--primary;
+$c--link--highlight: $blue--light;
+$c--notice: $yellow;
+$c--notice--success: $green;
+$c--notice--warning: $orange--red;

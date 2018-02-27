@@ -1,0 +1,46 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Extends
+//  - Container
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+%notice-knockout {
+  color: $c--knockout;
+
+  strong,
+  b {
+    color: inherit;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
+.notice {
+  background: $c--notice;
+  padding: $sitePadding;
+  text-align: center;
+
+  a {
+    color: inherit;
+    font-weight: $bold;
+    text-decoration: underline;
+  }
+}
+
+.notice--warning {
+  @extend %notice-knockout;
+  background-color: $c--notice--warning;
+}
+
+.notice--success {
+  @extend %notice-knockout;
+  background-color: $c--notice--success;
+}

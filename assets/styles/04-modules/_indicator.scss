@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Container
+//
+// -----------------------------------------------------------------------------
+
+.indicator {
+  background: $gray;
+  border-radius: 50%;
+  color: $c--knockout;
+  display: inline-block;
+  font-family: $sansSerif--condensed;
+  font-size: $fontSize--small;
+  font-weight: $bold;
+  line-height: 1.55;
+  margin: 0 .5em;
+  padding: 0 .55em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.indicator--green {
+  background-color: $green;
+}
+.indicator--green-light {
+  background-color: $green--light;
+}
+.indicator--orange {
+  background-color: $orange;
+}
+.indicator--orange-red {
+  background-color: $orange--red;
+}

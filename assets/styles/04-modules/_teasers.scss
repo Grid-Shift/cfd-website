@@ -1,0 +1,67 @@
+/*doc
+---
+title: Teasers
+---
+
+This module is used to display article teasers on various pages. Content is
+displayed 3-up by default
+
+```haml_example
+.teasers
+  %article.teasers__item
+    = link_to "url", class: "teasers__link" do
+      Content here
+```
+*/
+
+// -----------------------------------------------------------------------------
+// !-- Container
+// -----------------------------------------------------------------------------
+
+.teasers {
+  align-items: stretch;
+  background: $blue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.teasers__item {
+  flex-basis: 100%;
+
+  @include media($bp--medium) {
+    flex-basis: percentage(1/3);
+    min-height: $fontSize--subHeading * 8;
+    position: relative; // Used to ensure Safari provides height to child
+  }
+}
+
+.teasers__link {
+  background: $blue;
+  box-shadow: 0 0 0 transparent;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  padding: $gutter/2;
+  transition-duration: $duration;
+  transition-property: box-shadow, transform;
+  transition-timing-function: $easeInOut;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow--large;
+    overflow: visible;
+    text-decoration: none;
+    transform: scale(1.05);
+    z-index: $zIndex--above;
+  }
+
+  :nth-child(even) > & {
+    background: $blue--dark;
+  }
+
+  @include media($bp--large - 60px) {
+    padding: $gutter;
+    position: absolute; // Used to ensure Safari has height from parent
+  }
+}

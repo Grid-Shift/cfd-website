@@ -1,0 +1,7 @@
+@mixin heading($size, $lineHeight, $marginSize, $fontFamily: $sansSerif--condensed, $fontWeight: $bold) {
+  font-family: $fontFamily;
+  font-size: $size;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  margin: $marginSize 0;
+}

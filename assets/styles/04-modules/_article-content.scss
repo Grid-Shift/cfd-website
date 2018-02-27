@@ -1,0 +1,115 @@
+/*
+---
+title: Article Content
+---
+
+This file is intended to cover the many edge cases the deal with the display of
+text and images inside of articles.
+
+```haml_example
+.article-content
+  ... content goes here
+```
+*/
+
+// -----------------------------------------------------------------------------
+// !-- Local Variables
+// -----------------------------------------------------------------------------
+
+$_inset: 125px;
+$_max-width: 660px;
+
+// -----------------------------------------------------------------------------
+// !-- Start Wrapper
+// -----------------------------------------------------------------------------
+.article-content {
+
+// -----------------------------------------------------------------------------
+// !-- Extends
+// -----------------------------------------------------------------------------
+
+@include media($bp--medium) {
+  %text-margins {
+    margin-left: $_inset;
+    margin-right: $_inset;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Wrapper
+// -----------------------------------------------------------------------------
+
+@include media ($bp--medium) {
+  font-size: $baseSize--article;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $_max-width + ($_inset * 2);
+}
+
+// -----------------------------------------------------------------------------
+// !-- Text Styling
+// -----------------------------------------------------------------------------
+
+@include media ($bp--medium) {
+  ol,
+  ul,
+  p {
+    @extend %text-margins;
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @extend %text-margins;
+      margin-top: 2em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  blockquote {
+    font-size: $fontSize--large;
+    line-height: ($rhythm * 4.5);
+    font-weight: $light;
+
+    p {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// !-- Images
+// -----------------------------------------------------------------------------
+
+img {
+  @include media($bp--medium) {
+    margin-left: $_inset * -1;
+    margin-right: $_inset * -1;
+    width: calc(100% + #{$_inset} + #{$_inset});
+    max-width: initial;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Embeded content
+// -----------------------------------------------------------------------------
+
+iframe {
+  margin: $gutter auto;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- End Wrapper
+// -----------------------------------------------------------------------------
+}
