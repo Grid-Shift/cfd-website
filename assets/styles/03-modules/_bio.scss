@@ -1,0 +1,18 @@
+.bio {
+  margin: 0;
+  padding: 0;
+}
+
+.bio__image {
+  border-radius: 50%;
+}
+
+.bio__name {
+  color: var(--color-text-bold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.bio__description {
+  font-size: 13px;
+}

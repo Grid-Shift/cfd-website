@@ -1,0 +1,10 @@
+a {
+  color: var(--color-action);
+  text-decoration: none;
+  transition: color .2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-action-hover);
+}

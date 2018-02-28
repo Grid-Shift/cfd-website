@@ -1,0 +1,11 @@
+.l--constrain {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 var(--site-margin);
+}
+
+.l--constrain-layout {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 var(--site-margin);
+}

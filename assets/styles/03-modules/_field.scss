@@ -1,0 +1,44 @@
+.field__container {
+  position: relative;
+}
+
+.field__error {
+  text-shadow: 3px 3px 1px var(--color-background), 3px 0 1px var(--color-background), 0 3px 1px var(--color-background), -3px -3px 1px var(--color-background), -3px 0 1px var(--color-background), 0 -3px 1px var(--color-background), 0 0 5px var(--color-background);
+  border-top: 3px solid var(--color-error);
+  color: var(--color-error);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 0;
+  transition: opacity .3s ease-in-out;
+}
+.field__error.is--hidden {
+  opacity: 0;
+}
+
+.field__label {
+  left: 13px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: .15s;
+  transition-timing-function: ease-in-out;
+  transition-property: top transform;
+}
+
+.no-js .field__label,
+.field__label.field__label--is-dirty {
+  font-size: 12px;
+  top: 0;
+  transform: translateY(8px);
+}
+
+.field__input {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.no-js .field__input,
+.field__input.field__input--is-dirty {
+  padding-top: 26px;
+  padding-bottom: 10px;
+}

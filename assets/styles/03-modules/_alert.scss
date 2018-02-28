@@ -1,0 +1,14 @@
+.alert {
+  background-color: var(--color-error-background);
+  border: 1px solid var(--color-error);
+  border-radius: 3px;
+  color: var(--color-error);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 1em;
+  text-align: center;
+  transition: opacity .3s ease-in-out;
+}
+.alert.is--hidden {
+  opacity: 0;
+}

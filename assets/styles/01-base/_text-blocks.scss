@@ -1,0 +1,31 @@
+p {
+  font-size: var(--text-size);
+  line-height: 1.75;
+  margin: 1em 0;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text--small {
+  font-size: var(--h6-size);
+}
+
+blockquote {
+  --text-size: var(--h2-size);
+  text-align: center;
+
+  @media (min-width: $bp--medium) {
+    margin: 4em -60px;
+    padding: 0;
+    width: calc(100% + 120px);
+  }
+
+  p {
+    font-weight: 300;
+    line-height: 32/22;
+  }
+}

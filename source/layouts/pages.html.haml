@@ -1,0 +1,11 @@
+= wrap_layout :layout do
+  .l--constrain
+    %article.article
+      %header.article__header
+        .u--text-center
+          %h1= current_page.data.title
+          %hr
+          - if current_page.data.summary
+            %p.h3= current_page.data.summary
+
+      .article__content= yield

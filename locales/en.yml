@@ -7,3 +7,10 @@ en:
   blog_heading_long: |
     Strong opinions and lessons learned in product design, development, and strategy
   portfolio_heading: Selected Works
+  authors:
+    zeke:
+      name: Zeke Binion
+      url: "http://ezekielbinion.com"
+      img: "ezekiel-zeke-binion-designer.jpg"
+      bio: |
+        Product Designer / Developer / Speaker / Gamer / Lover of Slashes

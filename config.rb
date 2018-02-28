@@ -40,8 +40,8 @@ end
 # page "/path/to/file.html", :layout => :otherlayout
 #
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
+# with_layout :pages do
+#   page "/pages/*"
 # end
 
 # Proxy pages (http://middlemanapp.com/dynamic-pages/)
@@ -82,6 +82,8 @@ helpers do
   def meta_description
     if current_page.data.meta_description
       return current_page.data.meta_description
+    elsif current_page.data.summary
+      return current_page.data.summary
     else
       return t(:site_description)
     end

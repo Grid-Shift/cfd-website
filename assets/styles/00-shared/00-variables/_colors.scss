@@ -1,36 +1,16 @@
-// Brand Colors
-$c--brand--primary: #009ad6;
-
-// Named Colors
-$black: #131623;
-$black--rich: #000;
-$blue: $c--brand--primary;
-$blue--dark: #008fc7;
-$blue--light: #00a6e8;
-$gray: #88888d;
-$gray--light: #aaaaaf;
-$green: #00ab1c;
-$green--light: #B4D141;
-$navy: #202538;
-$orange: #E3AC46;
-$orange--red: #EB6A38;
-$yellow: #F3EEAB;
-$white: #fff;
-$white--bone: #f1f1ee;
-
-// UI Colors
-$c--bg: $white--bone;
-$c--body-text: #4A4A4A;
-$c--body-text--bold: $black;
-$c--body-text--light: $gray;
-$c--border: $c--bg;
-$c--border--input: #c1c1bb;
-$c--headline: $navy;
-$c--headline--light: $gray--light;
-$c--knockout: $white;
-$c--knockout--transparent: rgba(255,255,255,0);
-$c--link: $c--brand--primary;
-$c--link--highlight: $blue--light;
-$c--notice: $yellow;
-$c--notice--success: $green;
-$c--notice--warning: $orange--red;
+:root {
+  --grey-light: #F5F5F5;
+  --black: #505051;
+  --black-rich: #000;
+  --blue: #3782FF;
+  --color-action: #3782FF;
+  --color-action-hover: #1762FF;
+  --color-background: #F5F5F5;
+  --color-error: #E4500B;
+  --color-error-background: #F9DCCE;
+  --color-knockout: #fff;
+  --color-shadow: rgba(0,0,0,.2);
+  --color-text: #505051;
+  --color-text-bold: #000;
+  --color-text-light: #aBaBaB;
+}

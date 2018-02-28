@@ -1,0 +1,48 @@
+.cta-block {
+  background: var(--color-background) url('/assets/images/cta-bg-letters.svg') center top;
+  margin-top: 40px;
+  padding: 40px 0;
+  position: relative;
+}
+
+.cta-block__bg-1,
+.cta-block__bg-2 {
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.cta-block__bg-1 {
+  background: url('/assets/images/cta-bg-planes.svg') center top;
+}
+.cta-block__bg-2 {
+  background: url('/assets/images/cta-bg-brackets.svg') center top;
+}
+
+.cta-block__content {
+  position: relative;
+  z-index: 2;
+}
+.js .cta-block__content {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
+  transition-property: opacity transform;
+  will-change: opacity transform;
+}
+.js .cta-block__content.is--on-screen {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (min-width: $bp--medium) {
+  .cta-block {
+    margin-top: 80px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+}

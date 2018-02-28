@@ -1,0 +1,27 @@
+.button {
+  -webkit-appearance: none;
+  background: var(--color-action-hover);
+  border: 0;
+  border-radius: 44px;
+  color: var(--color-knockout);
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  padding: 13px 32px;
+  text-decoration: none;
+  transition: background-color .2s ease-in-out;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--color-action);
+  color: var(--color-knockout);
+}
+
+.button--secondary {
+  background: transparent;
+  border: 1px solid var(--color-action-hover);
+  color: var(--color-action-hover);
+  padding: 9px 20px;
+}
