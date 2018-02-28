@@ -1,5 +1,31 @@
 ---
 title: Blog
-layout: layout
+layout: pages
 ---
-%h1 Coming soon
+
+.l--section
+  .l--constrain-layout
+    %article.teaser.teaser--featured
+      = link_to "", class: "teaser__media teaser__media--featured" do
+        = image_tag lorem.image('530x397')
+      .teaser__content.teaser__content--featured
+        .h6= lorem.words 1
+        = link_to "" do
+          %h1= lorem.words 8
+        %hr
+        %p.h4= lorem.words 16
+
+.l--section
+  .l--constrain-layout
+    %h3.h6.u--text-center What else is cooking
+
+    .l--matrix
+      - 12.times do
+        .l--matrix__item
+          %article.teaser
+            = link_to "", class: "teaser__media" do
+              = image_tag lorem.image('800x600')
+            .teaser__content
+              .h6= lorem.words 1
+              %h1.h3= link_to lorem.words(8), ""
+              %p= lorem.sentence

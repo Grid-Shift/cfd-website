@@ -13,7 +13,12 @@
   flex: 1;
 }
 
-@media screen and (min-width: 600px) {
+.site__footer {
+  margin-top: var(--gutter-wide);
+  padding-bottom: var(--gutter);
+}
+
+@media screen and (min-width: $bp--medium) {
   .site__header {
     padding-bottom: 80px;
   }

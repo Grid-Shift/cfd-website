@@ -28,11 +28,14 @@
 .l--columns__column--one-third {
   flex-basis: 33.33333%;
 }
+.l--columns__column--half {
+  flex-basis: 50%;
+}
 .l--columns__column--one-thirds {
   flex-basis: 66.66666%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: $bp--medium) {
   .l--columns {
     display: flex;
     justify-content: space-between;
@@ -69,8 +72,14 @@
   .l--columns__column--one-thirds {
     flex-basis: 66.66666%;
   }
+
+  .l--columns__column--last-medium-up {
+    padding-left: 30px ;
+    padding-right: 0;
+    order: 99;
+  }
 }
-@media screen and (min-width: 780px) {
+@media screen and (min-width: $bp--large) {
   .l--columns--break-grid {
     margin-left: -70px;
     margin-right: -70px;

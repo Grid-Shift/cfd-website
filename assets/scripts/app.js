@@ -59,17 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Form validation
-  new FormValidation(document.querySelector('.js--validate'), {
-    onSubmit: () => {
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Form',
-        eventAction: 'submit',
-        eventLabel: 'Newsletter Signup',
-        transport: 'beacon'
-      })
-    }
-  })
+  const formEle = document.querySelector('.js--validate')
+  if (formEle) {
+    new FormValidation(formEle, {
+      onSubmit: () => {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Form',
+          eventAction: 'submit',
+          eventLabel: 'Newsletter Signup',
+          transport: 'beacon'
+        })
+      }
+    })
+  }
+
   // Field Validation
   document.querySelectorAll('.js--field').forEach((element) => {
     new InputValidation(element)

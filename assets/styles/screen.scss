@@ -29,7 +29,10 @@
    Variables, mixins, extends, etc (order matters)
    -------------------------------------------------------------------------- */
 
+@import "00-shared/00-variables/breakpoints";
 @import "00-shared/00-variables/colors";
+@import "00-shared/00-variables/sizes";
+@import "00-shared/02-mixins/visually-hidden";
 
 /* --------------------------------------------------------------------------
    Base
@@ -52,6 +55,8 @@
 
 @import "02-layout/columns";
 @import "02-layout/constrain";
+@import "02-layout/matrix";
+@import "02-layout/section";
 
 /* --------------------------------------------------------------------------
    Modules
@@ -67,6 +72,7 @@
 @import "03-modules/field";
 @import "03-modules/logo";
 @import "03-modules/site";
+@import "03-modules/teaser";
 
 /* --------------------------------------------------------------------------
    Overrides
