@@ -34,7 +34,8 @@ end
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", :layout => false
+page "/admin/index.html", layout: false
+page "/admin/config.yml", layout: false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
