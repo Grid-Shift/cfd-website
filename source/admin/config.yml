@@ -24,8 +24,8 @@ collections:
         widget: text
       - label: Post Category
         name: category
-        widget: list
-        default: ["News", "Level Up Fridays", "Tips & Tools", "Design Advice", "Coding Advice"]
+        widget: select
+        options: ["News", "Level Up Fridays", "Tips & Tools", "Design Advice", "Coding Advice"]
       - label: Thumbnail
         name: thumbnail
         widget: image
