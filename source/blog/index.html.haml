@@ -1,31 +1,27 @@
 ---
 title: Blog
-layout: pages
 ---
+
+- articles = blog.articles
+- featured = articles.shift
 
 .l--section
   .l--constrain-layout
     %article.teaser.teaser--featured
-      = link_to "", class: "teaser__media teaser__media--featured" do
-        = image_tag lorem.image('530x397')
+      = link_to featured.url, class: "teaser__media teaser__media--featured" do
+        = image_tag featured.data.thumbnail
       .teaser__content.teaser__content--featured
-        .h6= lorem.words 1
-        = link_to "" do
-          %h1= lorem.words 8
+        .h6= featured.data.category
+        = link_to featured.url do
+          %h1= featured.title
         %hr
-        %p.h4= lorem.words 16
+        %p.h4= featured.data.summary
 
-.l--section
-  .l--constrain-layout
-    %h3.h6.u--text-center What else is cooking
+- if articles.length > 0
+  .l--section
+    .l--constrain-layout
+      %h3.h6.u--text-center What else is cooking
 
-    .l--matrix
-      - 12.times do
-        .l--matrix__item
-          %article.teaser
-            = link_to "", class: "teaser__media" do
-              = image_tag lorem.image('800x600')
-            .teaser__content
-              .h6= lorem.words 1
-              %h1.h3= link_to lorem.words(8), ""
-              %p= lorem.sentence
+      .l--matrix
+        - articles.each do |article|
+          = partial "partials/teaser", locals: {article: article}

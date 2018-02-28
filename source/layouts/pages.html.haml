@@ -1,20 +1,11 @@
 = wrap_layout :layout do
-  .site
-    %header.site__header{role: "banner"}
-      .l--columns.l--columns--vertically-centered.l--columns--small
-        .l--columns__column.l--columns__column--small
-          = image_tag("cfd-logo.svg", class: "logo", alt: t(:site_name))
-        %nav.l--columns__column.l--columns__column--small
+  .l--constrain
+    %article.article
+      %header.article__header
+        .u--text-center
+          %h1= current_page.data.title
+          %hr
+          - if current_page.data.summary
+            %p.h3= current_page.data.summary
 
-    %main.site__main{role: "main"}
-      = yield
-
-    %footer.site__footer{role: "contentinfo"}
-      .l--columns.l--columns--spaced
-        .l--columns__column
-          .u--text-center
-            %small
-              \&copy; #{Time.now.year}
-              %a{href: "http://gridshiftdesign.com"} Grid Shift LLC,
-              the studio of product designer
-              %a{href: "http://ezekielbinion.com"} Zeke&nbsp;Binion
+      .article__content= yield
