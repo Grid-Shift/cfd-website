@@ -2,26 +2,27 @@
 title: Blog
 ---
 
-- articles = blog.articles
-- featured = articles.shift
+- if blog.articles.length > 0
+  - articles = blog.articles
+  - featured = articles.shift
 
-.l--section
-  .l--constrain-layout
-    %article.teaser.teaser--featured
-      = link_to featured.url, class: "teaser__media teaser__media--featured" do
-        = image_tag featured.data.thumbnail
-      .teaser__content.teaser__content--featured
-        .h6= featured.data.category
-        = link_to featured.url do
-          %h1= featured.title
-        %hr
-        %p.h4= featured.data.summary
-
-- if articles.length > 0
   .l--section
     .l--constrain-layout
-      %h3.h6.u--text-center What else is cooking
+      %article.teaser.teaser--featured
+        = link_to featured.url, class: "teaser__media teaser__media--featured" do
+          = image_tag featured.data.thumbnail
+        .teaser__content.teaser__content--featured
+          .h6= featured.data.category
+          = link_to featured.url do
+            %h1= featured.title
+          %hr
+          %p.h4= featured.data.summary
 
-      .l--matrix
-        - articles.each do |article|
-          = partial "partials/teaser", locals: {article: article}
+  - if articles.length > 0
+    .l--section
+      .l--constrain-layout
+        %h3.h6.u--text-center What else is cooking
+
+        .l--matrix
+          - articles.each do |article|
+            = partial "partials/teaser", locals: {article: article}
