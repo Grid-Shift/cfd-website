@@ -46,7 +46,7 @@ Links from the episode:
 
 * [BEM Card Example on CodePen](https://codepen.io/ebinion/pen/QOMPWz/)
 
-* [BEM Documentation](http://getbem.com/)
+* [BEM Documentation](http://getbem.com)
 
 
 *(Sorry for the audio difficulties in the intro, I promise next episodes audio will be much better.)*
