@@ -20,6 +20,10 @@ collections:
         name: meta_description
         widget: string
         required: false
+      - label: Canonical
+        name: canonical
+        widget: string
+        required: false
       - label: Post Title
         name: title
         widget: string

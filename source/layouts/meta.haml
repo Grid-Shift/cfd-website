@@ -42,6 +42,12 @@
     %link{rel: "alternate", type:"application/rss+xml", title: t(:rss_name),
   href: "#{data.site.url}/blog/rss.xml"}
 
+    -# Canonical tags
+    - unless current_page.data.canonical.nil?
+      %link{rel: "canonical", href: current_page.data.canonical}
+    - else
+      %link{rel: "canonical", href: "#{data.site.url}#{current_page.url}"}
+
     -# CSS
     = stylesheet_link_tag "screen"
 
