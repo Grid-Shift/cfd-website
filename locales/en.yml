@@ -3,10 +3,8 @@ en:
   site_name: Code for Designers
   site_tagline: Learn HTML, CSS, and more with tutorials made for designers
   site_description: "No more boring demos, technical babble, or ugly examples — learn what it takes to go from design idea to execution."
-  blog_heading: Ideas &amp; Experiments
-  blog_heading_long: |
-    Strong opinions and lessons learned in product design, development, and strategy
-  portfolio_heading: Selected Works
+  rss_name: Code for Designers Blog
+  rss_description: Articles and videos helping designers learn to code.
   authors:
     zeke:
       name: Zeke Binion
