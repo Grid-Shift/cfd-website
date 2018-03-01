@@ -8,7 +8,9 @@ collections:
     label: Blog
     folder: "source/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.html"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "html.markdown"
+    format: md
     fields:
       - label: Meta Title
         name: meta_title
