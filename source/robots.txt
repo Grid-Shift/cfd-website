@@ -1,4 +1,4 @@
 # robotstxt.org/
 
 User-agent: *
-Sitemap: http://ezekielbinion.com/sitemap.xml
+Sitemap: https://www.codefordesigners.com/sitemap.xml
