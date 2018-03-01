@@ -14,7 +14,7 @@
     !-- Import vendor plugins
   --------------------------------------------------------------------------- */
 
-// const vanillaFitVids = require('./vendor/vanillaFitVids')
+import vanillaFitVids from './vendor/vanillaFitVids'
 import {TweenLite, Strong} from 'gsap'
 
 /* -----------------------------------------------------------------------------
@@ -31,6 +31,8 @@ import OnScreen from './modules/OnScreen'
   --------------------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
+  vanillaFitVids()
+
   // MoveLabel
   document.querySelectorAll('.js--field').forEach((element) => {
     new MoveLabel(element)

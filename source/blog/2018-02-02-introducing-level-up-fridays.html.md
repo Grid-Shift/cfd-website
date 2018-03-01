@@ -1,8 +1,4 @@
 ---
-meta_title: Introducing Level Up Fridays
-meta_description: >-
-  Looking for free, bite-sized tutorials to do over your lunch-break? Look no
-  further.
 title: Introducing Level Up Fridays
 summary: >-
   Looking for free, bite-sized tutorials to do over your lunch-break? Look no
@@ -30,7 +26,7 @@ How questions and responses are phrased defer a great deal from written to spoke
 
 Speaking to native French speakers was more beneficial than speaking to myself. But speaking aloud, even to just myself, had a large impact and that was noticeable by both my friends and instructor.
 
-Over the course of the last few years, I've mentored dozens of designers and observed a similar phenomenon. 
+Over the course of the last few years, I've mentored dozens of designers and observed a similar phenomenon.
 
 People that write code more often (even if they write it poorly at first) grow exponentially quicker than those that don't.
 
