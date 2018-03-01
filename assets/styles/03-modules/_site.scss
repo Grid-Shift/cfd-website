@@ -1,3 +1,7 @@
+/* -----------------------------------------------------------------------------
+    !-- Container
+  --------------------------------------------------------------------------- */
+
 .site {
   display: flex;
   min-height: 100vh;
@@ -5,21 +9,36 @@
   margin: 0 auto;
 }
 
+/* -----------------------------------------------------------------------------
+    !-- Header
+  --------------------------------------------------------------------------- */
+
 .site__header {
-  padding: 30px 20px 60px;
+  padding: 30px var(--site-margin) 60px;
+  text-align: center;
+
+  @media (min-width: $bp--medium) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 80px;
+    text-align: left;
+  }
 }
+
+/* -----------------------------------------------------------------------------
+    !-- Main
+  --------------------------------------------------------------------------- */
 
 .site__main {
   flex: 1;
 }
 
+/* -----------------------------------------------------------------------------
+    !-- Footer
+  --------------------------------------------------------------------------- */
+
 .site__footer {
   margin-top: var(--gutter-wide);
-  padding-bottom: var(--gutter);
-}
-
-@media screen and (min-width: $bp--medium) {
-  .site__header {
-    padding-bottom: 80px;
-  }
+  padding: var(--site-margin);
 }

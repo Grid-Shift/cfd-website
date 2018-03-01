@@ -1,11 +1,14 @@
 = wrap_layout :meta do
   .site
     %header.site__header{role: "banner"}
-      .l--columns.l--columns--vertically-centered.l--columns--small
-        .l--columns__column.l--columns__column--small
-          = link_to "/" do
-            = image_tag("cfd-logo.svg", class: "logo", alt: t(:site_name))
-        %nav.l--columns__column.l--columns__column--small
+      .site__header-logo
+        = link_to "/" do
+          = image_tag("cfd-logo.svg", class: "logo", alt: t(:site_name))
+      %nav.site__header-nav{role: "navigation"}
+        %ul.nav
+          %li.nav__item= link_to "Blog", "/pages/about"
+          %li.nav__item= link_to "About", "/pages/about"
+          %li.nav__item= link_to "Get Free Updates", "http://eepurl.com/diHwL9", class: "text--small button button--secondary"
 
     %main.site__main{role: "main"}
       = yield
