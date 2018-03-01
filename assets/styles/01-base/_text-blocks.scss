@@ -29,3 +29,12 @@ blockquote {
     line-height: 32/22;
   }
 }
+
+
+ul,
+ol {
+  font-size: var(--text-size);
+}
+li {
+  margin: 1em 0;
+}
