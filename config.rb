@@ -28,6 +28,41 @@ activate :blog do |blog|
 end
 
 ################################################################################
+# Plugins
+################################################################################
+
+# Directory structures, must be placed after blog
+activate :directory_indexes
+activate :livereload
+activate :i18n
+
+activate :external_pipeline do |config|
+  config.name = :gulp
+  config.command = build? ? 'yarn run assets:production' : 'yarn run assets:watch'
+  config.source = '.tmp_assets'
+  config.latency = 1
+end
+
+################################################################################
+# Directory configurations
+################################################################################
+
+set :css_dir, 'assets/styles'
+set :js_dir, 'assets/scripts'
+set :images_dir, 'assets/images'
+set :build_dir, '.build'
+
+################################################################################
+# Tasks
+################################################################################
+
+configure :build do
+  activate :gzip
+  activate :asset_hash
+  activate :cache_buster
+end
+
+################################################################################
 # Page options, layouts, aliases and proxies
 ################################################################################
 
@@ -53,6 +88,10 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 page "/portfolio/*", layout: "portfolio"
+
+# Per-page directory index changes (e.g. changes '/404/' to '/404.html' ):
+
+page "/404.html", directory_index: false
 
 ################################################################################
 # Helpers
@@ -101,39 +140,4 @@ helpers do
   def last_index?(array, index)
     index == array.length - 1
   end
-end
-
-################################################################################
-# Plugins
-################################################################################
-
-# Directory structures, must be placed after blog
-activate :directory_indexes
-activate :livereload
-activate :i18n
-
-activate :external_pipeline do |config|
-  config.name = :gulp
-  config.command = build? ? 'yarn run assets:production' : 'yarn run assets:watch'
-  config.source = '.tmp_assets'
-  config.latency = 1
-end
-
-################################################################################
-# Directory configurations
-################################################################################
-
-set :css_dir, 'assets/styles'
-set :js_dir, 'assets/scripts'
-set :images_dir, 'assets/images'
-set :build_dir, '.build'
-
-################################################################################
-# Tasks
-################################################################################
-
-configure :build do
-  activate :gzip
-  activate :asset_hash
-  activate :cache_buster
 end
