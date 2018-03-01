@@ -38,6 +38,10 @@
     %meta{name: "msapplication-wide310x150logo", content: "mstile-310x150.png"}
     %meta{name: "msapplication-square310x310logo", content: "mstile-310x310.png"}
 
+    -# RSS
+    %link{rel: "alternate", type:"application/rss+xml", title: t(:rss_name),
+  href: "#{data.site.url}/blog/rss.xml"}
+
     -# CSS
     = stylesheet_link_tag "screen"
 
