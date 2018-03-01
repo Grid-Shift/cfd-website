@@ -5,6 +5,7 @@ summary: >-
   Introducing Productship.FM a podcast about the intersection of digital product
   design and development.
 category: News
+thumbnail: /assets/images/uploads/productshipfm-cover-thumbnail.jpg
 author_id: zeke
 published: true
 ---
