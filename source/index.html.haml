@@ -1,123 +1,95 @@
 ---
-layout: meta
+
 ---
-.site
-  %header.site__header{:role => "banner"}
-    .l--columns.l--columns--vertically-centered.l--columns--small
-      .l--columns__column.l--columns__column--small
-        = image_tag("cfd-logo.svg", class: "logo", alt: t(:site_name))
-        %span.u--is-visible.u--is-medium-hidden
-          %a.text--small{:href => "https://gridshift1.typeform.com/to/sn5Mq7", :target => "_blank"}> got a coding challenge?
-          \&#160;
-      %nav.l--columns__column.l--columns__column--small
-        .u--text-right
-          %span.u--is-hidden.u--is-medium-visible
-            %a.text--small{:href => "https://gridshift1.typeform.com/to/sn5Mq7", :target => "_blank"}> got a coding challenge?
-            \&#160;
-          %a.text--small.button.button--secondary.js--scrollTo{:href => "#newsletter-signup"} sign up
-  %main.site__main{:role => "main"}
-    %article.article
-      %header.article__header
-        .l--constrain
-          %h1.u--text-center Finally, learn what it takes to make your designs a reality
-      .article__content
-        .l--constrain
-          %p Learning to code offers designers many advantages.
-          %p
-            According to a
-            %a{:href => "http://tools.subtraction.com/prototyping.html", :title => "2015 Subtraction.com Design Tools Survey"} 2015 survey,
-            %strong 38% of designers surveyed used HTML/CSS as their primary tool for prototyping
-            (the closest competitor received only 18% of the vote).
-          %p In addition to prototyping, learning to code helps designers&#8230;
-          %ul
-            %li Create a common language between designers and&#160;developers
-            %li Ensure the creative vision is carried through from concept to&#160;execution
-            %li Reduce the number of mock-ups generated
-            %li Explore new technologies
-          %p &#8230; and let's not forget, that it dramatically increases the number of job opportunities available to designers.
-          %h2 The problem is learning to code isn&#8217;t easy.
-          %p In today&#8217;s web, knowing HTML and CSS is just the start. Turning a mock-up into working code often takes no less than 4 different programming languages working together, in a Beethoven-esque symphony.
-          %p There are many great tutorials available that focus on individual programming languages. However, they often leave out the additional skills that are necessary to help move from their example to your real project.
-          %h2 You've learned the basics, I'll help you learn the rest.
-          %p Over the last decade, I've helped many designers apply the basic skills they've learned through tutorials to their real work. I'd like to help you too.
-          %p
-            I'm currently developing the first course,
-            %em Getting your team on the same page with Style Guides.
-            This
-            %strong FREE course
-            will cover:
-          %ul
-            %li Planning reusable components for your design system
-            %li Documenting your components for your development team
-            %li
-              Organizing your style guide using Brad Frost&#8217;s
-              %a{:href => "http://patternlab.io/"} Patternlab
-          %p
-            %strong
-              %a.js--scrollTo{:href => "#newsletter-signup"} Sign up below,
-            to be notified when
-            %em Getting your team on the same page with Style Guides
-            is released.
-      %footer.article__footer
-        .l--constrain
-          %figure.bio
-            .l--columns.l--columns--small.l--columns--vertically-centered
-              .l--columns__column.l--columns__column--small.l--columns__column--one-third
-                = image_tag("ezekiel-zeke-binion-designer.jpg", class: "bio__image", alt: "Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on")
-              %figcaption.l--columns__column.l--columns__column--small.l--columns__column--two-thirds
-                %a.bio__name{:href => "http://ezekielbinion.com", :rel => "author"} Ezekiel "Zeke" Binion
-                .bio__description
-                  Product Designer / Developer / Speaker / Gamer / Lover of Slashes
-                  %br/
-                  %a{:href => "http://ezekielbinion.com"} Learn more about me
-    #newsletter-signup.cta-block
-      .cta-block__bg-1
-      .cta-block__bg-2
-      .cta-block__content.js--is-onscreen
-        .l--constrain
-          / START: MailChimp Signup Form
-          %form#mc-embedded-subscribe-form.js--validate{:action => "//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&id=5e3811f11f", :method => "post", :name => "mc-embedded-subscribe-form", :target => "_blank"}
-            %h2.h1.u--text-center Stop waiting, start coding
-            %p.u--text-center.u--text-on-pattern
-              Get designer-orientated coding tips, tricks and tutorials delivered to your&#160;inbox.
-              %br/
-              %small (All fields below are required.)
-            .alert.is--hidden.js--validate__alert{"aria-live" => "polite", :role => "alert"}
-            .l--columns.l--columns--spaced.l--columns--break-grid
-              .l--columns__column
-                .field.js--field
-                  .field__container
-                    %label.label.field__label.js--field__label{:for => "mce-FNAME"} First Name
-                    %input#mce-FNAME.input.field__input.js--field__input{:autocomplete => "given-name", :minlength => "2", :name => "FNAME", :required => "", :type => "text"}/
-                  .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
-              .l--columns__column
-                .field.js--field
-                  .field__container
-                    %label.label.field__label.js--field__label{:for => "mce-LNAME"} Last Name
-                    %input#mce-LNAME.input.field__input.js--field__input{:autocomplete => "family-name", :minlength => "2", :name => "LNAME", :required => "", :type => "text"}/
-                  .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
-            .l--columns
-              .l--columns__column
-                .field.js--field
-                  .field__container
-                    %label.label.field__label.js--field__label{:for => "mce-EMAIL"} Email Address
-                    %input#mce-EMAIL.input.field__input.js--field__input{:autocomplete => "email", :name => "EMAIL", :required => "", :type => "email"}/
-                  .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
-            / real people should not fill this in and expect good things - do not remove this or risk form bot signups
-            %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
-              %input{:name => "b_521d476f58a0f6f4878adc436_5e3811f11f", :tabindex => "-1", :type => "text", :value => ""}/
-            .l--columns.l--columns--spaced
-              .l--columns__column
-                .u--text-center
-                  %input.button{:name => "subscribe", :type => "submit", :value => "Get the Free Newsletter"}/
-          / END: MailChimp Signup Form
-          %footer.l--columns--spaced{:role => "contentinfo"}
-            .l--columns__column
-              .u--text-center.u--text-on-pattern
-                %small
-                  \&#169; 2017,
-                  = succeed "," do
-                    %a{:href => "http://gridshiftdesign.com"} Grid Shift LLC
-                  %a{:href => "http://ezekielbinion.com"} Zeke&#160;Binion
+%main.site__main{:role => "main"}
+  %article.article
+    %header.article__header
+      .l--constrain
+        %h1.u--text-center Finally, learn what it takes to make your designs a reality
+    .article__content
+      .l--constrain
+        %p Learning to code offers designers many advantages.
+        %p
+          According to a
+          %a{:href => "http://tools.subtraction.com/prototyping.html", :title => "2015 Subtraction.com Design Tools Survey"} 2015 survey,
+          %strong 38% of designers surveyed used HTML/CSS as their primary tool for prototyping
+          (the closest competitor received only 18% of the vote).
+        %p In addition to prototyping, learning to code helps designers&#8230;
+        %ul
+          %li Create a common language between designers and&#160;developers
+          %li Ensure the creative vision is carried through from concept to&#160;execution
+          %li Reduce the number of mock-ups generated
+          %li Explore new technologies
+        %p &#8230; and let's not forget, that it dramatically increases the number of job opportunities available to designers.
+        %h2 The problem is learning to code isn&#8217;t easy.
+        %p In today&#8217;s web, knowing HTML and CSS is just the start. Turning a mock-up into working code often takes no less than 4 different programming languages working together, in a Beethoven-esque symphony.
+        %p There are many great tutorials available that focus on individual programming languages. However, they often leave out the additional skills that are necessary to help move from their example to your real project.
+        %h2 I'm here to help.
+        %p For the last 6 years, I've been helping others learn user experience and coding skills. During that time, I've mentored designers at coding boot camps, spoken in college classrooms, meet one-on-one with children in STEM programs, spoken at tech conferences, and created a 10-week board game design course that I used to teach teens at a Chicago-based media-arts non-profit basic UX skills.
+
+        %p One of the most impactful opportunities I've had to help others was by being a guest speaker for <a href="https://www.citizenschools.org/">Citizen Schools</a>. Through the program, I had the opportunity to go into a classroom on the Southside of Chicago and teach kids about design and technology.
+
+        %p While I was speaking in the classroom, I realized the difference I could make in someone's life. By exposing them to new ideas, giving them an opportunity to explore, and providing them with support and encouragement along the way -- I could make an impact that would last.
+
+        %p As a mentor for other designers, I've seen the difference that can be made in someone's journey to learn code by following the same steps.
+
+        %p There is so much power in being able to use your creativity to make something from nothing. I want to share that ability with the world and empower more designers to create things for themselves.
+
+        %p That's why I'm creating Code for Designers. My goal is to inspire you to make the web a more interesting place.
+
+        %p
+          %strong
+            %a.js--scrollTo{:href => "#newsletter-signup"} Subscribe below,
+            to stay up-to-date with course development at Code&nbsp;for&nbsp;Designers.
+    %footer.article__footer
+      .l--constrain
+        %figure.bio
+          .l--columns.l--columns--small.l--columns--vertically-centered
+            .l--columns__column.l--columns__column--small.l--columns__column--one-third
+              = image_tag("ezekiel-zeke-binion-designer.jpg", class: "bio__image", alt: "Ezekiel 'Zeke' Binion, smiling with a polka dot shirt on")
+            %figcaption.l--columns__column.l--columns__column--small.l--columns__column--two-thirds
+              %a.bio__name{:href => "http://ezekielbinion.com", :rel => "author"} Ezekiel "Zeke" Binion
+              .bio__description
+                Product Designer / Developer / Speaker / Gamer / Lover of Slashes
                 %br/
-                %a.text--small{:href => "https://gridshift1.typeform.com/to/sn5Mq7", :target => "_blank"} Got a coding challenge?
+                = link_to "Learn more about me", "http://ezekielbinion.com"
+  #newsletter-signup.cta-block
+    .cta-block__bg-1
+    .cta-block__bg-2
+    .cta-block__content.js--is-onscreen
+      .l--constrain
+        / START: MailChimp Signup Form
+        %form#mc-embedded-subscribe-form.js--validate{:action => "//codefordesigners.us3.list-manage.com/subscribe/post?u=521d476f58a0f6f4878adc436&id=5e3811f11f", :method => "post", :name => "mc-embedded-subscribe-form", :target => "_blank"}
+          %h2.h1.u--text-center Stop waiting, start coding
+          %p.u--text-center.u--text-on-pattern
+            Get designer-orientated coding tips, tricks and tutorials delivered to your&#160;inbox.
+            %br/
+            %small (All fields below are required.)
+          .alert.is--hidden.js--validate__alert{"aria-live" => "polite", :role => "alert"}
+          .l--columns.l--columns--spaced.l--columns--break-grid
+            .l--columns__column
+              .field.js--field
+                .field__container
+                  %label.label.field__label.js--field__label{:for => "mce-FNAME"} First Name
+                  %input#mce-FNAME.input.field__input.js--field__input{:autocomplete => "given-name", :minlength => "2", :name => "FNAME", :required => "", :type => "text"}/
+                .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
+            .l--columns__column
+              .field.js--field
+                .field__container
+                  %label.label.field__label.js--field__label{:for => "mce-LNAME"} Last Name
+                  %input#mce-LNAME.input.field__input.js--field__input{:autocomplete => "family-name", :minlength => "2", :name => "LNAME", :required => "", :type => "text"}/
+                .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
+          .l--columns
+            .l--columns__column
+              .field.js--field
+                .field__container
+                  %label.label.field__label.js--field__label{:for => "mce-EMAIL"} Email Address
+                  %input#mce-EMAIL.input.field__input.js--field__input{:autocomplete => "email", :name => "EMAIL", :required => "", :type => "email"}/
+                .field__error.is--hidden.js--field__error{"aria-live" => "polite"}
+          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+            %input{:name => "b_521d476f58a0f6f4878adc436_5e3811f11f", :tabindex => "-1", :type => "text", :value => ""}/
+          .l--columns.l--columns--spaced
+            .l--columns__column
+              .u--text-center
+                %input.button{:name => "subscribe", :type => "submit", :value => "Get the Free Newsletter"}/
