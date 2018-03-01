@@ -53,4 +53,4 @@ const vanillaFitVids = () => {
   }
 }
 
-module.exports = vanillaFitVids
+export default vanillaFitVids
