@@ -43,7 +43,7 @@ When I met other designers, we often chatted about the things we wanted to learn
 
 A few years into my professional career I took a course at Starter League, one of the first tech boot camps in Chicago. I had been working professionally for a few years in the field, but having no formal training in research or development left me wanting to know more.
 
-Afterwards, that feeling of wanting to help others gnawed at me again. When I left the class, I decided to become a mentor for people going through the program.
+Afterward, that feeling of wanting to help others gnawed at me again. When I left the class, I decided to become a mentor for people going through the program.
 
 From there, the opportunities I found to teach and mentor others continued to grow. I've spoken in classrooms at tech boot camps and universities, [co-organized Chicago's HTML5 Meetup](https://www.meetup.com/chicago-html5/), and spoken at [Chicago Camp's UX Camp](http://chicagocamps.org/).
 
@@ -93,6 +93,6 @@ That's why I started Code for Designers.
 
 There is so much power in being able to use your creativity to make something from nothing. I want to share that ability with the world and empower more designers to create things for themselves.
 
-For many designers, learning to code isn't about becoming frontend developer. Perhaps the thing you want to make is a prototype. Maybe you want to create a website by hand, or just modify an existing template to better suit your needs. Possibly, you just want to make a quick demo that gives you the ability to understand new web and mobile technologies.
+For many designers, learning to code isn't about becoming frontend developer. Perhaps the thing you want to make is a prototype. Maybe you want to create a website by hand, or just modify an existing template to better suit your needs. Possibly, you just want to make a quick demo that gives you the ability to understand the new web and mobile technologies.
 
 Whatever your use-case is, my goal is to inspire you to make the web a more interesting place.
