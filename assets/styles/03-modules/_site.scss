@@ -14,14 +14,13 @@
   --------------------------------------------------------------------------- */
 
 .site__header {
-  padding: 30px var(--site-margin) 60px;
+  padding: 30px var(--site-margin) var(--site-margin);
   text-align: center;
 
   @media (min-width: $bp--medium) {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 80px;
     text-align: left;
   }
 }
