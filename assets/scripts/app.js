@@ -16,6 +16,7 @@
 
 import vanillaFitVids from './vendor/vanillaFitVids'
 import {TweenLite, Strong} from 'gsap'
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 
 /* -----------------------------------------------------------------------------
     !-- Import custom modules
@@ -48,11 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', (event) => {
       event.preventDefault()
       event.target.blur()
+      const targetEle = document.querySelector(event.target.getAttribute('href'))
 
       TweenLite.to(window, .75, {
         ease: Strong.easeInOut,
-        scrollTo: event.target.getAttribute('href'),
-        onCompleteParams: [document.querySelector(event.target.getAttribute('href'))],
+        scrollTo: targetEle,
+        onCompleteParams: [targetEle],
         onComplete: (targetEle) => {
           targetEle.focus()
         }
