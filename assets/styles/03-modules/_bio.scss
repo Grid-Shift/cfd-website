@@ -1,6 +1,13 @@
 .bio {
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
+}
+
+.bio__media {
+  flex: 0 0 100px;
+  margin-right: var(--gutter);
 }
 
 .bio__image {
@@ -14,5 +21,5 @@
 }
 
 .bio__description {
-  font-size: 13px;
+
 }
