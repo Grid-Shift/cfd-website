@@ -26,11 +26,12 @@ $_bp_featured: 850px;
   position: relative;
 
   &.teaser__media--featured {
+    height: auto;
+    padding: 0;
+
     @media (min-width: $_bp_featured) {
-      height: auto;
       flex: 0 0 50%;
       order: 2;
-      padding: 0;
     }
   }
 }
