@@ -1,8 +1,10 @@
 ---
-title: Introducing Level Up Fridays
+meta_title: Learn how to keep your CSS organized with BEM
+title: 'Episode 1: Introducing Level Up Fridays'
 summary: >-
   Looking for free, bite-sized tutorials to do over your lunch-break? Look no
-  further.
+  further. In this episode, you'll learn how to keep your CSS organized with
+  BEM.
 category: Level Up Fridays
 thumbnail: /assets/images/uploads/b539741f-3177-4075-b236-722e8631ac49-1.jpg
 author_id: zeke
