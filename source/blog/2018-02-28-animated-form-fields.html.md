@@ -1,5 +1,5 @@
 ---
-title: Animated form fields
+title: 'Episode 2: Learn to make animated form fields'
 summary: Make your UI delightful with animated form fields
 category: Level Up Fridays
 thumbnail: /assets/images/uploads/level-up-fridays-animated-form-fields.jpg
