@@ -1,7 +1,7 @@
 ---
 meta_title: Learn Markdown to improve your communication with your project team
 title: 'Episode 4: Better comments with Markdown'
-summary: Learn Markdown to improve your communication with your project team
+summary: Learn how to improve your project team communication with Markdown
 category: Level Up Fridays
 thumbnail: /assets/images/uploads/better-commments-with-markdown-teaser.jpg
 author_id: zeke
