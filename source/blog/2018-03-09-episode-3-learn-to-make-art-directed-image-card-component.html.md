@@ -1,6 +1,6 @@
 ---
 meta_title: Learn to make art directed image card patterns with HTML and CSS
-title: 'Episode 3: Learn to make art-directed image card patterns'
+title: 'Episode 3: Learn to Make Art-Directed Image Card Patterns'
 summary: >-
   From Trello to Google, card components are all over the internet. In this
   video, I'll teach you how to make your own.
