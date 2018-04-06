@@ -17,5 +17,5 @@ Handling images in Responsive Design has gotten a whole lot easier thanks in par
 
 **Episode Links**
 
-- Starting Pen: https://codepen.io/ebinion/pen/ZxqBRo
-- Finished Pen: https://codepen.io/ebinion/pen/OvBmLL
+- [Starting Pen](https://codepen.io/ebinion/pen/ZxqBRo)
+- [Finished Pen](https://codepen.io/ebinion/pen/OvBmLL)
