@@ -1,0 +1,96 @@
+/* =============================================================================
+    Buttons
+
+    Table of Contents
+    - Base
+    - Modifiers
+
+  =========================================================================== */
+
+
+/* -----------------------------------------------------------------------------
+    !-- Base
+  --------------------------------------------------------------------------- */
+
+button,
+[type="submit"],
+[type="button"],
+.button {
+  background: transparent;
+  border: 1px solid $c--link;
+  color: $c--link;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $fontSize--small;
+  height: $touchTarget;
+  line-height: $touchTarget;
+  padding: 0 2em;
+  -webkit-appearance: none;
+  transition-property: box-shadow, color;
+  transition-duration: $duration;
+  transition-timing-function: $easeInOut;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 3px $c--link inset;
+    text-decoration: none;
+    outline: 0;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+    !-- Modifiers
+  --------------------------------------------------------------------------- */
+
+.button {
+  &--primary {
+    background: $c--link;
+    color: $c--knockout;
+    box-shadow: 0 0 0 1px $c--link inset;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 1px #fff inset;
+    }
+  }
+
+  &--incognito {
+    border-color: lighten($gray--light, 20%);
+    color: $gray--light;
+    height: $touchTarget - 6px;
+    line-height: $touchTarget - 6px;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+
+    &:hover,
+    &:focus {
+      border-color: $c--link;
+      box-shadow: none;
+      color: $c--link;
+    }
+  }
+
+  &--menu {
+    background: $c--knockout;
+    border-color: $c--knockout;
+    box-shadow: $shadow;
+    color: $c--link;
+    font-size: $fontSize;
+    height: $touchTarget + 10px;
+    line-height: $touchTarget + 10px;
+    min-width: 100%;
+    text-align: center;
+    transition-property: background, color;
+
+    &:hover,
+    &:focus {
+      background: transparent;
+      box-shadow: $shadow;
+      color: $c--knockout;
+    }
+
+    @include media(540px) {
+      min-width: 360px;
+    }
+  }
+}

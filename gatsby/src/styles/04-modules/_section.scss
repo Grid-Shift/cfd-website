@@ -1,0 +1,65 @@
+// -----------------------------------------------------------------------------
+// Table of Contents
+//
+//  - Variables
+//  - Containers
+//  - Header
+//  - Content
+//
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Variables
+// -----------------------------------------------------------------------------
+$_padding: $sectionPadding;
+$_padding--large: $sectionPadding--large;
+$_lineColor: #aaa;
+
+// -----------------------------------------------------------------------------
+// !-- Containers
+// -----------------------------------------------------------------------------
+.section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: $_padding 0;
+
+  @include media($bp--medium) {
+    padding: $_padding--large 0;
+  }
+
+  &:first-child {
+    // padding-top: 0;
+  }
+
+  &--dark {
+    background: $white--bone;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Header
+// -----------------------------------------------------------------------------
+
+.section__header {
+  align-self: flex-start;
+  margin-bottom: $gutter;
+  width: 100%;
+
+  @media screen and (min-width: $bp--medium) {
+    margin-bottom: $gutter--large;
+  }
+}
+.section__header--margin-small {
+  margin-bottom: $gutter--small;
+}
+
+// -----------------------------------------------------------------------------
+// !-- Content
+// -----------------------------------------------------------------------------
+
+.section__content {
+  width: 100%;
+}

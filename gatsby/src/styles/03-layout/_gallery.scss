@@ -1,0 +1,87 @@
+/*doc
+---
+Name: Gallery
+---
+
+Use this element to layout items in a grid of evenly distributed items across
+the entire width of it's container, that won't break.
+
+```haml_example
+.l--gallery
+  .l--gallery__item
+    Perhaps text could go here
+  .l--gallery__item
+    Or another module
+  .l--gallery__item
+    This module is pretty flexible
+```
+
+or you could produced a centered grid that will break
+
+```haml_example
+.l--gallery.l--gallery--centered
+  .l--gallery__item
+    Perhaps text could go here
+  .l--gallery__item
+    Or another module
+  .l--gallery__item
+    This module is pretty flexible
+```
+
+*/
+
+// -----------------------------------------------------------------------------
+// !-- Variables
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// !-- Containers
+// -----------------------------------------------------------------------------
+
+.l--gallery {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+
+  &.l--gallery--centered {
+    justify-content: center;
+  }
+
+  &.l--gallery--logos {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// !-- Items
+// -----------------------------------------------------------------------------
+
+.l--gallery__item {
+  padding: $gutter/2;
+
+  &.l--gallery__item--logo {
+    flex: 0 0 33.3%; // 3-up
+
+    @media screen and (min-width: 525px) {
+      flex-basis: 25%; // 4-up
+    }
+
+    @media screen and (min-width: 750px) {
+      flex-basis: 20%; // 5-up
+    }
+
+    @media screen and (min-width: 875px) {
+      flex-basis: 16.6%; // 6-up
+    }
+  }
+
+  &.l--gallery__item--reduce-logo {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}
