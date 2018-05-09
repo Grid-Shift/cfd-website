@@ -1,20 +1,12 @@
-// Breakpoints are written mobile-first style and represent the end-point.
-$bp--small: 400px;
-$bp--medium: 700px;
-$bp--large: 1000px;
-$bp--xlarge: 1400px;
+:root {
+  --gutter: 20px;
+  --gutter-narrow: 20px;
+  --gutter-wide: 60px;
+  --site-margin: 20px; // if updating also update teaser
 
-$touchTarget: 40px;
-
-$rhythm: 8px;
-$sitePadding: 20px;
-$sectionPadding: $rhythm * 6;
-$sectionPadding--large: $rhythm * 12;
-
-$gutter: 40px;
-$gutter--large: 80px;
-$gutter--small: 20px;
-
-$borderRadius: 3px;
-
-$site--maxWidth: 1200px;
+  @media (min-width: $bp--medium) {
+    --gutter: 40px;
+    --gutter-wide: 80px;
+    --site-margin: 60px;
+  }
+}

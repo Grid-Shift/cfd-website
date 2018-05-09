@@ -1,9 +1,0 @@
-/**
- * PEM
- * Converts pixels to ems
- *
- * @return {Number} - Em based number
- */
-@function pem($target, $context: $baseSize) {
-  @return strip-unit($target) / strip-unit($context) * 1em;
-}
