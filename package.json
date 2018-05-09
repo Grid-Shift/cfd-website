@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "CodeForDesigners.com",
+  "description": "The primary website for Code for Designers.",
+  "version": "2.0.0",
+  "author": "Zeke Binion <zeke@gridshiftdesign.com>",
   "dependencies": {
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
@@ -11,13 +11,10 @@
     "gatsby-source-prismic": "^0.1.4",
     "react-helmet": "^5.2.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "./node_modules/.bin/gatsby build",
+    "develop": "./node_modules/.bin/gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
