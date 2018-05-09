@@ -1,5 +1,6 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Code for Designers - Public Website
+
+This repo contains the code used to display the public-facing website for Code for Designers.
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
@@ -23,16 +24,11 @@ npm run develop
 
 ## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
+tk
 
 ***
 
-Old README below
-
-# Code for Designers - Public Website
-
-This repo contains the code used to display the public-facing website for Code for Designers.
+# Old README below
 
 ## Development
 
