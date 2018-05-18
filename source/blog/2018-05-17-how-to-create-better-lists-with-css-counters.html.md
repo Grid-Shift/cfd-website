@@ -7,7 +7,7 @@ summary: >-
 category: Level Up Fridays
 thumbnail: /assets/images/uploads/new-video-teaser.jpg
 author_id: zeke
-published: false
+published: true
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WHCqucC6k4A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
