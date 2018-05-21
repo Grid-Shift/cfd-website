@@ -109,6 +109,22 @@ helpers do
     end
   end
 
+  def recommend_articles(current_page)
+    blog.articles.sort do |a, b|
+      # Move to back of list if is the current page
+      if a.title.eql?(current_page.title)
+        1
+      # Move to the front of list if the category matches this page's category
+      elsif current_page.data.category.eql?(a.data.category)
+        -1
+      elsif a.data.category.eql?(b.data.category)
+        0
+      else
+        1
+      end
+    end
+  end
+
   def social_title
     if current_page.data.meta_title
       return current_page.data.meta_title
