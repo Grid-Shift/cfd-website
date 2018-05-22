@@ -160,7 +160,7 @@ helpers do
 
   def live_articles
     blog.articles.keep_if do |article|
-      article.date <= Time.now
+      article.data.live_date.nil? || DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z") <= Time.now
     end
   end
 end
