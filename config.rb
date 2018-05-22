@@ -1,3 +1,4 @@
+require 'cgi'
 ################################################################################
 # Blog settings
 ################################################################################
@@ -162,5 +163,32 @@ helpers do
     blog.articles.keep_if do |article|
       article.data.live_date.nil? || DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z") <= Time.now
     end
+  end
+
+  def share_params
+    {
+      fb_app_id: data.site.facebook_app_id,
+      page_type: "page",
+      redirect_url: CGI.escape("#{data.site.url}#{current_page.url}?share_thanks=true"),
+      url: CGI.escape("#{data.site.url}#{current_page.url}"),
+      title: CGI.escape(current_page.title),
+      twitter_id: "code4designers",
+      provider: CGI.escape("Code for Designers")
+    }
+  end
+
+  def facebook_share_url
+    params = share_params
+    "https://www.facebook.com/dialog/share?app_id=#{params[:fb_app_id]}&display=#{params[:page_type]}&href=#{params[:url]}&redirect_uri=#{params[:redirect_url]}"
+  end
+
+  def linkedin_share_url
+    params = share_params
+    "https://www.linkedin.com/shareArticle?mini=true&url=#{params[:url]}&title=#{params[:title]}&source=#{params[:provider]}"
+  end
+
+  def twitter_share_url
+    params = share_params
+    "https://twitter.com/intent/tweet?url=#{params[:url]}&text=#{params[:title]}&via=#{params[:twitter_id]}"
   end
 end

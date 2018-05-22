@@ -28,6 +28,23 @@
               %div= t("authors.#{current_page.data.author_id}.bio")
               %div.h6
                 %time{datetime: current_page.date.strftime('%Y-%m-%d'), title: current_page.date.strftime('Published %B %d, %Y')}= current_page.date.strftime('%b %-d, %Y')
+  %aside.promobar
+    .promobar__social
+      = link_to facebook_share_url, class: "button button--share is--facebook" do
+        %span.u--accessibly-hidden Share on Facebook
+        %svg.button__icon
+          %use{href: image_path('icons.svg#social-facebook-solo')}
+      = link_to twitter_share_url, class: "button button--share is--twitter" do
+        %span.u--accessibly-hidden Share on Twitter
+        %svg.button__icon
+          %use{href: image_path('icons.svg#social-twitter')}
+      = link_to linkedin_share_url, class: "button button--share is--linkedin" do
+        %span.u--accessibly-hidden Share on LinkedIn
+        %svg.button__icon
+          %use{href: image_path('icons.svg#social-linkedin')}
+    .promobar__subscribe
+      %h5.promobar__subscribe-text Get the latest in your inbox.
+      = link_to "Subscribe", "http://eepurl.com/diHwL9", class: "button button--small"
 
   %aside.l--section
     .l--constrain-layout

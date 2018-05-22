@@ -1,7 +1,21 @@
+/* =============================================================================
+    Button
+
+    Table of Contents
+    - Container
+    - Icon
+
+  =========================================================================== */
+
+
+/* -----------------------------------------------------------------------------
+    !-- Container
+  --------------------------------------------------------------------------- */
+
 .button {
   -webkit-appearance: none;
   background: var(--color-action-hover);
-  border: 0;
+  border: 0 solid ;
   border-radius: 2px;
   color: var(--color-knockout);
   cursor: pointer;
@@ -12,6 +26,7 @@
   padding: 13px 32px;
   text-decoration: none;
   transition: background-color .2s ease-in-out;
+  transition-property: background-color, border-color, color;
 }
 .button:hover,
 .button:focus {
@@ -24,4 +39,42 @@
   border: 1px solid var(--color-action-hover);
   color: var(--color-action-hover);
   padding: 9px 20px;
+}
+
+.button--small {
+  padding: 9px 20px;
+}
+
+.button--share {
+  background: var(--color-knockout);
+  border: 1px solid var(--grey);
+  color: var(--black-rich);
+  font-size: 13px;
+  padding: 9px 20px;
+
+  &.is--linkedin {
+    --color-action-hover: #0077B5;
+  }
+  &.is--twitter {
+    --color-action-hover: #1da1f2;
+  }
+  &.is--facebook {
+    --color-action-hover: #3b5998;
+  }
+}
+.button--share:hover,
+.button--share:focus {
+  background: var(--color-knockout);
+  border-color: var(--color-action-hover);
+  color: var(--color-action-hover);
+}
+
+/* -----------------------------------------------------------------------------
+    !-- Icon
+  --------------------------------------------------------------------------- */
+
+.button__icon {
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
 }
