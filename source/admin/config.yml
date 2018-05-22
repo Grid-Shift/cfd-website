@@ -46,13 +46,20 @@ collections:
         name: author_id
         widget: select
         options: ["zeke"]
-      - label: Published
+      - label: Published?
         name: published
         widget: boolean
         default: false
       - label: Live Date
         name: live_date
         widget: datetime
+      - label: Lead Embed (e.g. video)
+        name: lead_embed
+        widget: text
+      - label: Video?
+        name: has_video
+        widget: boolean
+        default: false
       - label: Body
         name: body
         widget: markdown

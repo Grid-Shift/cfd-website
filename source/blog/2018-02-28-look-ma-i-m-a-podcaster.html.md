@@ -8,6 +8,7 @@ category: News
 thumbnail: /assets/images/uploads/productshipfm-cover-thumbnail.jpg
 author_id: zeke
 published: true
+has_video: false
 ---
 <iframe frameborder='0' height='200px' scrolling='no' seamless src='https://embed.simplecast.com/e75df861?color=f5f5f5' width='100%'></iframe>
 

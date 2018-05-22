@@ -9,8 +9,10 @@ category: Level Up Fridays
 thumbnail: /assets/images/uploads/b539741f-3177-4075-b236-722e8631ac49-1.jpg
 author_id: zeke
 published: true
+has_video: true
+lead_embed: >-
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/gawbDwuQsWc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gawbDwuQsWc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 I'm really excited to introduce "Level Up Fridays." Level Up Fridays is a series of free bite-sized tutorials designed to help you learn a little bit of coding over the course of your lunch-break.
 

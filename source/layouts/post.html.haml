@@ -1,6 +1,6 @@
 = wrap_layout :layout do
-  .l--constrain
-    %article.article
+  %article.article
+    .l--constrain
       %header.article__header
         .u--text-center
           - if current_page.data.category
@@ -11,10 +11,14 @@
           - if current_page.data.summary
             %p.h3= current_page.data.summary
 
-      .article__content= yield
+    .article__content
+      - if current_page.data.lead_embed
+        .l--video= current_page.data.lead_embed
+      .l--constrain= yield
 
+    - if current_page.data.author_id
       %footer.article__footer
-        - if current_page.data.author_id
+        .l--constrain
           .bio
             .bio__media= image_tag(t("authors.#{current_page.data.author_id}.img"), class: "bio__image", alt: t("authors.#{current_page.data.author_id}.name"))
             .bio__description

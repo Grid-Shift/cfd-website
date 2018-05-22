@@ -2,6 +2,9 @@
   %article.teaser
     = link_to article.url, class: "teaser__media" do
       = image_tag article.data.thumbnail, class: "teaser__image"
+      - if article.data.has_video
+        %svg.teaser__icon
+          %use{href: image_path('icons.svg#media-play-circle-md')}
     .teaser__content
       .h6= article.data.category
       %h1.h3= link_to article.title, article.url

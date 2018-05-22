@@ -6,8 +6,10 @@ category: Level Up Fridays
 thumbnail: /assets/images/uploads/better-commments-with-markdown-teaser.jpg
 author_id: zeke
 published: true
+has_video: true
+lead_embed: >-
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/i5RrON5GodY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i5RrON5GodY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 As you grow as a coder, it can seem like there aren't many places to practice your new found skill because many people in your organization are likely better at coding than you. That's ok, your value as a designer isn't diminished by not being the best coder on your team.
 
