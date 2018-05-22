@@ -46,6 +46,9 @@ collections:
         name: published
         widget: boolean
         default: false
+      - label: Publish Date
+        name: date
+        widget: datetime
       - label: Body
         name: body
         widget: markdown

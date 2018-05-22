@@ -9,6 +9,7 @@ activate :blog do |blog|
   blog.sources = "{year}-{month}-{day}-{title}.html"
   blog.layout = "layouts/post"
   blog.default_extension = ".markdown"
+  blog.publish_future_dated = true
 
   # Matcher for blog source files
   # blog.taglink = "tags/{tag}.html"
@@ -110,7 +111,7 @@ helpers do
   end
 
   def recommend_articles(current_page)
-    blog.articles.sort do |a, b|
+    live_articles.sort do |a, b|
       # Move to back of list if is the current page
       if a.title.eql?(current_page.title)
         1
@@ -155,5 +156,11 @@ helpers do
 
   def last_index?(array, index)
     index == array.length - 1
+  end
+
+  def live_articles
+    blog.articles.keep_if do |article|
+      article.date <= Time.now
+    end
   end
 end
