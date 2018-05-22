@@ -15,7 +15,7 @@
       %meta{property: "og:image", content: "#{data.site.url}#{image_path(current_page.data.thumbnail)}"}
     %meta{property: "og:description", content: meta_description}
     %meta{property: "og:site_name", content: t(:site_name)}
-    %meta{property: "fb:app_id", content: "2016420281957462"}
+    %meta{property: "fb:app_id", content: data.site.facebook_app_id}
 
     -# Favicons
     %link{rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/apple-touch-icon-57x57.png"}

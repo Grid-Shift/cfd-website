@@ -83,3 +83,44 @@
 
 @import "04-overrides/text";
 @import "04-overrides/visibility";
+
+
+$_break: 760px;
+
+.promobar {
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 0 2px rgba(0,0,0,.1);
+  display: flex;
+  justify-content: center;
+  padding: 10px var(--site-margin);
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+
+  @media (min-width: $_break) {
+    justify-content: space-between;
+  }
+}
+
+.promobar__social {
+  display: none;
+
+  @media (min-width: $_break) {
+    display: block;
+  }
+}
+.promobar__subscribe {
+  text-align: center;
+}
+
+.promobar__subscribe-text {
+  display: block;
+  margin-bottom: .5em;
+
+  @media (min-width: 375px) {
+    display: inline;
+    margin-bottom: 0;
+    margin-right: .75em;
+  }
+}
