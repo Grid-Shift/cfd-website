@@ -1,8 +1,12 @@
 backend:
   name: git-gateway
   branch: master
-media_folder: "/assets/images/uploads"
+media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
+display_url: "https://www.codefordesigners.com/blog/"
+slug:
+  encoding: "ascii"
+  clean_accents: true
 collections:
   - name: blog
     label: Blog
@@ -46,8 +50,8 @@ collections:
         name: published
         widget: boolean
         default: false
-      - label: Publish Date
-        name: date
+      - label: Live Date
+        name: live_date
         widget: datetime
       - label: Body
         name: body
