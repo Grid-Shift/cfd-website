@@ -9,6 +9,7 @@ activate :blog do |blog|
   blog.sources = "{year}-{month}-{day}-{title}.html"
   blog.layout = "layouts/post"
   blog.default_extension = ".markdown"
+  blog.publish_future_dated = true
 
   # Matcher for blog source files
   # blog.taglink = "tags/{tag}.html"
@@ -109,6 +110,22 @@ helpers do
     end
   end
 
+  def recommend_articles(current_page)
+    live_articles.sort do |a, b|
+      # Move to back of list if is the current page
+      if a.title.eql?(current_page.title)
+        1
+      # Move to the front of list if the category matches this page's category
+      elsif current_page.data.category.eql?(a.data.category)
+        -1
+      elsif a.data.category.eql?(b.data.category)
+        0
+      else
+        1
+      end
+    end
+  end
+
   def social_title
     if current_page.data.meta_title
       return current_page.data.meta_title
@@ -139,5 +156,11 @@ helpers do
 
   def last_index?(array, index)
     index == array.length - 1
+  end
+
+  def live_articles
+    blog.articles.keep_if do |article|
+      article.date <= Time.now
+    end
   end
 end

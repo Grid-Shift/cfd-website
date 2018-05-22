@@ -9,7 +9,7 @@
       <link><%= data.site.url %>/blog</link>
       <title><%= t(:site_name) %> logo tile</title>
   </image>
-  <% blog.articles.each do |article| %>
+  <% live_articles.each do |article| %>
   <item>
       <title><%= article.title %></title>
       <link><%= data.site.url %><%= article.url %></link>
