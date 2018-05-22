@@ -8,28 +8,28 @@
     %meta{content: "width=device-width", name: "viewport"}
 
     -# Open Graph
-    %meta{property: "og:title", description: social_title}
-    %meta{property: "og:type", description: "website"}
-    %meta{property: "og:url", description: "#{data.site.url}#{current_page.url}"}
+    %meta{property: "og:title", content: social_title}
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:url", content: "#{data.site.url}#{current_page.url}"}
     - if current_page.data.thumbnail
-      %meta{property: "og:image", description: "#{data.site.url}#{image_path(current_page.data.thumbnail)}"}
-    %meta{property: "og:description", description: meta_description}
-    %meta{property: "og:site_name", description: t(:site_name)}
+      %meta{property: "og:image", content: "#{data.site.url}#{image_path(current_page.data.thumbnail)}"}
+    %meta{property: "og:description", content: meta_description}
+    %meta{property: "og:site_name", content: t(:site_name)}
 
     -# Favicons
-    %link{rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "#{data.site.url}/apple-touch-icon-57x57.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "#{data.site.url}/apple-touch-icon-114x114.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "#{data.site.url}/apple-touch-icon-72x72.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "#{data.site.url}/apple-touch-icon-144x144.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "#{data.site.url}/apple-touch-icon-60x60.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "#{data.site.url}/apple-touch-icon-120x120.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "#{data.site.url}/apple-touch-icon-76x76.png"}
-    %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "#{data.site.url}/apple-touch-icon-152x152.png"}
-    %link{rel: "icon", type: "image/png", href: "#{data.site.url}/favicon-196x196.png", sizes: "196x196"}
-    %link{rel: "icon", type: "image/png", href: "#{data.site.url}/favicon-96x96.png", sizes: "96x96"}
-    %link{rel: "icon", type: "image/png", href: "#{data.site.url}/favicon-32x32.png", sizes: "32x32"}
-    %link{rel: "icon", type: "image/png", href: "#{data.site.url}/favicon-16x16.png", sizes: "16x16"}
-    %link{rel: "icon", type: "image/png", href: "#{data.site.url}/favicon-128.png", sizes: "128x128"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/apple-touch-icon-57x57.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/apple-touch-icon-114x114.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/apple-touch-icon-72x72.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/apple-touch-icon-144x144.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "/apple-touch-icon-60x60.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "/apple-touch-icon-120x120.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "/apple-touch-icon-76x76.png"}
+    %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "/apple-touch-icon-152x152.png"}
+    %link{rel: "icon", type: "image/png", href: "/favicon-196x196.png", sizes: "196x196"}
+    %link{rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96"}
+    %link{rel: "icon", type: "image/png", href: "/favicon-32x32.png", sizes: "32x32"}
+    %link{rel: "icon", type: "image/png", href: "/favicon-16x16.png", sizes: "16x16"}
+    %link{rel: "icon", type: "image/png", href: "/favicon-128.png", sizes: "128x128"}
     %meta{name: "application-name", content: t(:site_name)}
     %meta{name: "msapplication-TileColor", content: "#FFFFFF"}
     %meta{name: "msapplication-TileImage", content: "mstile-144x144.png"}
@@ -45,8 +45,6 @@
     -# Canonical tags
     - unless current_page.data.canonical.nil?
       %link{rel: "canonical", href: current_page.data.canonical}
-    - else
-      %link{rel: "canonical", href: "#{data.site.url}#{current_page.url}"}
 
     -# CSS
     = stylesheet_link_tag "screen"
