@@ -21,9 +21,9 @@ $_bp_featured: 850px;
 
 .teaser__media {
   display: block;
+  position: relative;
   height: 0;
   padding-top: percentage(9/16);
-  position: relative;
 
   &.teaser__media--featured {
     height: auto;
@@ -43,6 +43,19 @@ $_bp_featured: 850px;
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.teaser__icon {
+  background: var(--color-knockout);
+  border-radius: 50%;
+  fill: var(--blue);
+  box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 0 0 3px var(--blue); // inset used to avoid white spotting around edge of icon
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 44px;
+  width: 44px;
 }
 
 .teaser__content {

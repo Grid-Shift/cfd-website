@@ -12,6 +12,9 @@ meta_description: Articles and videos providing designers with tips on learning 
       %article.teaser.teaser--featured
         = link_to featured.url, class: "teaser__media teaser__media--featured" do
           = image_tag featured.data.thumbnail
+          - if featured.data.has_video
+            %svg.teaser__icon
+              %use{href: image_path('icons.svg#media-play-circle-md')}
         .teaser__content.teaser__content--featured
           .h6= featured.data.category
           = link_to featured.url do

@@ -9,3 +9,9 @@
   max-width: 1140px;
   padding: 0 var(--site-margin);
 }
+
+.l--video {
+  margin: var(--gutter) auto;
+  max-width: 1020px; // Matches padded content size of layout constrainer
+  padding: 0;
+}
