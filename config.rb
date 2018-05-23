@@ -161,8 +161,18 @@ helpers do
 
   def live_articles
     blog.articles.keep_if do |article|
-      article.data.live_date.nil? || DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z") <= Time.now
+      live?(article)
     end
+  end
+
+  def live_site_content
+    sitemap.resources.keep_if do |resource|
+      resource.content_type.eql?("text/html; charset=utf-8") && live?(resource)
+    end
+  end
+
+  def live?(article)
+    article.data.live_date.nil? || DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z") <= Time.now
   end
 
   def share_params
