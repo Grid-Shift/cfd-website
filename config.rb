@@ -167,12 +167,20 @@ helpers do
 
   def live_site_content
     sitemap.resources.keep_if do |resource|
-      resource.content_type.eql?("text/html; charset=utf-8") && live?(resource)
+      resource.content_type.eql?("text/html; charset=utf-8") && defined?(resource.date).nil? || resource.content_type.eql?("text/html; charset=utf-8") && live?(resource)
     end
   end
 
   def live?(article)
-    article.data.live_date.nil? || DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z") <= Time.now
+    published_date(article) <= Time.now
+  end
+
+  def published_date(article)
+    if article.data.live_date.nil?
+      article.date
+    else
+      DateTime.strptime(article.data.live_date, "%Y-%m-%dT%H:%M:%S%z")
+    end
   end
 
   def share_params
@@ -200,5 +208,9 @@ helpers do
   def twitter_share_url
     params = share_params
     "https://twitter.com/intent/tweet?url=#{params[:url]}&text=#{params[:title]}&via=#{params[:twitter_id]}"
+  end
+
+  def format_date_rss
+    '%a, %d %b %Y %H:%M:%S %z'
   end
 end

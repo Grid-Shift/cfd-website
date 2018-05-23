@@ -31,4 +31,4 @@ meta_description: Articles and videos providing designers with tips on learning 
 
         .l--matrix
           - articles.each do |article|
-            = partial "partials/teaser", locals: {article: article}
+            .l--matrix__item= partial "partials/teaser", locals: {article: article}

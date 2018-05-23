@@ -1,20 +1,25 @@
-<?xml version="1.0" ?>
-<rss version="2.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title><%= t(:rss_name) %></title>
-  <link><%= data.site.url %>/blog</link>
+  <title><![CDATA[<%= t(:rss_name) %>]]></title>
+  <link><![CDATA[<%= data.site.url %>/blog]]></link>
   <description><%= t(:rss_description) %></description>
   <image>
-      <url><%= data.site.url %>/favicon-196.png</url>
-      <link><%= data.site.url %>/blog</link>
-      <title><%= t(:site_name) %> logo tile</title>
+      <url><![CDATA[<%= data.site.url %>/favicon-196.png]]></url>
+      <link><![CDATA[<%= data.site.url %>/blog]]></link>
+      <title><![CDATA[<%= t(:rss_name) %>]]></title>
   </image>
+  <lastBuildDate><%= Time.now.strftime(format_date_rss) %></lastBuildDate>
+  <atom:link href="<%= data.site.url + current_page.url %>" rel="self" type="application/rss+xml" />
+  <language>en-us</language>
   <% live_articles.each do |article| %>
   <item>
-      <title><%= article.title %></title>
-      <link><%= data.site.url %><%= article.url %></link>
-      <description><%= article.data.summary %></description>
-      <category><%= article.data.category %></category>
+      <title><![CDATA[<%= article.title %>]]></title>
+      <link><![CDATA[<%= data.site.url + article.url %>]]></link>
+      <guid><![CDATA[<%= data.site.url + article.url %>]]></guid>
+      <description><![CDATA[<%= article.data.summary %>]]></description>
+      <category><![CDATA[<%= article.data.category %>]]></category>
+      <pubDate><%= published_date(article).strftime(format_date_rss) %></pubDate>
   </item>
   <% end %>
 </channel>

@@ -29,7 +29,7 @@
                 %a.bio__name{href: t("authors.#{current_page.data.author_id}.url"), rel: "author"}= t("authors.#{current_page.data.author_id}.name")
               %div= t("authors.#{current_page.data.author_id}.bio")
               %div.h6
-                %time{datetime: current_page.date.strftime('%Y-%m-%d'), title: current_page.date.strftime('Published %B %d, %Y')}= current_page.date.strftime('%b %-d, %Y')
+                %time{datetime: published_date(current_page).strftime('%Y-%m-%d'), title: published_date(current_page).strftime('Published %B %d, %Y')}= published_date(current_page).strftime('%b %-d, %Y')
   %aside.promobar
     .promobar__social
       = link_to facebook_share_url, class: "button button--share is--facebook" do
@@ -54,4 +54,4 @@
 
       .l--matrix
         - recommend_articles(current_page)[0...3].each_with_index do |article, index|
-          = partial "partials/teaser", locals: {article: article}
+          .l--matrix__item= partial "partials/teaser", locals: {article: article}
