@@ -16,7 +16,9 @@ meta_description: Articles and videos providing designers with tips on learning 
             %svg.teaser__icon
               %use{href: image_path('icons.svg#media-play-circle-md')}
         .teaser__content.teaser__content--featured
-          .h6= featured.data.category
+          .h6
+            = featured.data.category
+            = "&bull; Ep #{current_page.data.episode_number}" unless current_page.data.episode_number.nil?
           = link_to featured.url do
             %h1= featured.title
           %hr
