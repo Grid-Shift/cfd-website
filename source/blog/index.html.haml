@@ -18,7 +18,7 @@ meta_description: Articles and videos providing designers with tips on learning 
         .teaser__content.teaser__content--featured
           .h6
             = featured.data.category
-            = "&bull; Ep #{current_page.data.episode_number}" unless current_page.data.episode_number.nil?
+            = "&bull; Ep #{featured.data.episode_number}" unless featured.data.episode_number.nil?
           = link_to featured.url do
             %h1= featured.title
           %hr
