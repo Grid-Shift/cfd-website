@@ -8,6 +8,6 @@
     .teaser__content
       .h6
         = article.data.category
-        = "&bull; Ep #{current_page.data.episode_number}" unless current_page.data.episode_number.nil?
+        = "&bull; Ep #{article.data.episode_number}" unless article.data.episode_number.nil?
       %h1.h3= link_to article.title, article.url
       %p= article.data.summary
