@@ -211,6 +211,6 @@ helpers do
   end
 
   def format_date_rss
-    '%a, %d %B %Y %H:%M:%S %z'
+    '%a, %d %b %Y %H:%M:%S %z'
   end
 end
