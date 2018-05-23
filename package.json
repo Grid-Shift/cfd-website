@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "start": "bundle exec middleman server",
-    "generate": "bundle exec middleman build",
+    "generate": "bundle exec middleman build --verbose",
     "assets": "./node_modules/.bin/gulp",
     "assets:production": "NODE_ENV=production ./node_modules/.bin/gulp build:production",
     "assets:watch": "./node_modules/.bin/gulp watch",

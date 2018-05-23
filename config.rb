@@ -167,7 +167,7 @@ helpers do
 
   def live_site_content
     sitemap.resources.keep_if do |resource|
-      resource.content_type.eql?("text/html; charset=utf-8") && live?(resource)
+      resource.content_type.eql?("text/html; charset=utf-8") && defined?(resource.date).nil? || resource.content_type.eql?("text/html; charset=utf-8") && live?(resource)
     end
   end
 
