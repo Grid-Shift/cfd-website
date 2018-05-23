@@ -1,6 +1,6 @@
 ---
 meta_title: Learn how to use the picture element for Responsive images
-title: 'Episode 5: How to Create Responsive Images'
+title: 'How to create Responsive Images'
 summary: >-
   Learn how to use HTML's `picture` element and `srcset` to provide
   art-direction and handle different display resolutions for Responsive images.
@@ -9,6 +9,7 @@ thumbnail: /assets/images/uploads/responsive-images-teaser-thumb.png
 author_id: zeke
 published: true
 has_video: true
+episode_number: 5
 lead_embed: >-
   <iframe width="560" height="315" src="https://www.youtube.com/embed/DmEoMqC3rj8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ---

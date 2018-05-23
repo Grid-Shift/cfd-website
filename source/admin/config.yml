@@ -60,6 +60,13 @@ collections:
         name: has_video
         widget: boolean
         default: false
+        required: false
+      - label: Episode Number
+        name: episode_number
+        widget: number
+        valueType: int
+        required: false
+        min: 1
       - label: Body
         name: body
         widget: markdown

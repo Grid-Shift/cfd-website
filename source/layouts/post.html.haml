@@ -4,7 +4,9 @@
       %header.article__header
         .u--text-center
           - if current_page.data.category
-            .h6= current_page.data.category
+            .h6
+              = current_page.data.category
+              = "&bull; Episode #{current_page.data.episode_number}" unless current_page.data.episode_number.nil?
 
           %h1= current_page.title
           %hr

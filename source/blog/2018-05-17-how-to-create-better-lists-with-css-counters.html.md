@@ -9,6 +9,7 @@ thumbnail: /assets/images/uploads/new-video-teaser.jpg
 author_id: zeke
 published: true
 has_video: true
+episode_number: 6
 lead_embed: >-
   <iframe width="560" height="315" src="https://www.youtube.com/embed/WHCqucC6k4A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ---

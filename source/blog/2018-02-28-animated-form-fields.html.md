@@ -1,11 +1,12 @@
 ---
-title: 'Episode 2: Learn to make animated form fields'
+title: 'Learn to make animated form fields'
 summary: Make your UI delightful with animated form fields
 category: Level Up Fridays
 thumbnail: /assets/images/uploads/level-up-fridays-animated-form-fields.jpg
 author_id: zeke
 published: true
 has_video: true
+episode_number: 2
 lead_embed: >-
   <iframe width="560" height="315" src="https://www.youtube.com/embed/aKtSDk_r4PA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ---
