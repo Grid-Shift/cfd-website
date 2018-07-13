@@ -9,7 +9,7 @@ activate :blog do |blog|
   # blog.sources = "posts/:year-:month-:day-:title.html"
   blog.sources = "{year}-{month}-{day}-{title}.html"
   blog.layout = "layouts/post"
-  blog.default_extension = ".markdown"
+  blog.default_extension = ".md"
   blog.publish_future_dated = true
 
   # Matcher for blog source files
